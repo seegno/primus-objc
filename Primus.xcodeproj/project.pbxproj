@@ -98,8 +98,8 @@
 		E5F94BF51885B5BD00170670 /* PrimusTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrimusTest.m; sourceTree = "<group>"; };
 		E5F94C011885B5E900170670 /* SocketIOClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOClient.h; sourceTree = "<group>"; };
 		E5F94C021885B5E900170670 /* SocketIOClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOClient.m; sourceTree = "<group>"; };
-		E5F94C051885B5F200170670 /* TransformerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformerProtocol.h; sourceTree = "<group>"; };
-		E5F94C081885B60D00170670 /* ParserProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParserProtocol.h; sourceTree = "<group>"; };
+		E5F94C051885B5F200170670 /* TransformerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransformerProtocol.h; path = Transformers/TransformerProtocol.h; sourceTree = "<group>"; };
+		E5F94C081885B60D00170670 /* ParserProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParserProtocol.h; path = Parsers/ParserProtocol.h; sourceTree = "<group>"; };
 		E5F94C0A1885B6C600170670 /* Primus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Primus.h; sourceTree = "<group>"; };
 		E5F94C0B1885B6C600170670 /* Primus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Primus.m; sourceTree = "<group>"; };
 		E5FA210218893C8F00638647 /* SocketRocketClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketRocketClient.h; sourceTree = "<group>"; };
@@ -266,6 +266,8 @@
 				E58795691886A94300913F61 /* Core */,
 				E5F94C071885B5FE00170670 /* Parsers */,
 				E5F94BFF1885B5E900170670 /* Transformers */,
+				E5F94C081885B60D00170670 /* ParserProtocol.h */,
+				E5F94C051885B5F200170670 /* TransformerProtocol.h */,
 				E5FA210618893DFE00638647 /* PrimusProtocol.h */,
 				E5F94C0A1885B6C600170670 /* Primus.h */,
 				E5F94C0B1885B6C600170670 /* Primus.m */,
@@ -308,7 +310,6 @@
 			children = (
 				E5FA210118893C8100638647 /* SocketRocket */,
 				E5F94C001885B5E900170670 /* socket.IO */,
-				E5F94C051885B5F200170670 /* TransformerProtocol.h */,
 				E5FA210718893F1A00638647 /* Transformer.h */,
 				E5FA210818893F1A00638647 /* Transformer.m */,
 			);
@@ -328,7 +329,6 @@
 			isa = PBXGroup;
 			children = (
 				E51005C11887F38400A8F1F2 /* JSON */,
-				E5F94C081885B60D00170670 /* ParserProtocol.h */,
 			);
 			path = Parsers;
 			sourceTree = "<group>";
