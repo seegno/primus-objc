@@ -1,0 +1,44 @@
+PODS:
+  - BlocksKit/DynamicDelegate (2.0.0):
+    - libffi
+  - Emitter (0.0.3):
+    - BlocksKit/DynamicDelegate (~> 2.0.0)
+    - SLObjectiveCRuntimeAdditions (~> 1.1.2)
+  - Expecta (0.2.3)
+  - NSTimer-Blocks (0.0.1)
+  - OCHamcrest (3.0.1)
+  - OCMockito (1.1.0):
+    - OCHamcrest (~> 3.0)
+  - SLObjectiveCRuntimeAdditions (1.1.2)
+  - socket.IO (0.4.1):
+    - SocketRocket (~> 0.2)
+  - SocketRocket (0.3.1-beta2)
+  - Specta (0.2.1)
+
+DEPENDENCIES:
+  - BlocksKit/DynamicDelegate
+  - Emitter
+  - Expecta
+  - NSTimer-Blocks
+  - OCMockito
+  - socket.IO (from `https://raw.github.com/nunofgs/cocoapods-specs/master/socket.IO/0.4.1/socket.IO.podspec`)
+  - SocketRocket
+  - Specta
+
+EXTERNAL SOURCES:
+  socket.IO:
+    :podspec: https://raw.github.com/nunofgs/cocoapods-specs/master/socket.IO/0.4.1/socket.IO.podspec
+
+SPEC CHECKSUMS:
+  BlocksKit: b29ee3f28ba06a09f5c64987314ce5b75b2c3962
+  Emitter: 9be3b79b2ecd889d27aa1fa4d395a8656c8a2ff4
+  Expecta: dbc4a27fabb853bdd2e907e33f11ee43a9a47d0c
+  NSTimer-Blocks: 99f52d61c29429d7e8ef0c82e596f317addb9421
+  OCHamcrest: 782c52ae8c673e5d6060a65005cfd26d20d519ba
+  OCMockito: 317fa0cf75c9b0d73d2be335789c556537be7fd2
+  SLObjectiveCRuntimeAdditions: 3fa6a14b9d09ed386180b19de1267bb1cd8a9aad
+  socket.IO: fd6078b8261ec169af00385982ec4ad9808f77a5
+  SocketRocket: 7ac946bcce46287a791dfff3c1f8daa692821dae
+  Specta: 2d06220591110c6d9757d8be8ecf8e63aa40dc2a
+
+COCOAPODS: 0.29.0

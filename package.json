@@ -1,0 +1,13 @@
+{
+  "name": "Primus-Objc",
+  "private": "true",
+  "version": "0.0.1",
+  "dependencies": {},
+  "devDependencies": {
+    "socket.io": "~0.9.16",
+    "ws": "~0.4.31"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}
