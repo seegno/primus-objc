@@ -283,7 +283,7 @@
         data = packet[@"data"];
     }
 
-    [self.parser encode:data callback:^(NSError *error, NSData *packet) {
+    [self.parser encode:data callback:^(NSError *error, id packet) {
         if (error) {
             return [self emit:@"error", error];
         }

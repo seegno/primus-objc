@@ -27,7 +27,7 @@
         }
     }];
 
-    [_primus on:@"outgoing::data" listener:^(NSData *data) {
+    [_primus on:@"outgoing::data" listener:^(id data) {
         if (!_socket || SR_OPEN != _socket.readyState) {
             return;
         }

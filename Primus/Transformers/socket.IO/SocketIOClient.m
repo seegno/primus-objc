@@ -33,7 +33,7 @@
         }
     }];
 
-    [_primus on:@"outgoing::data" listener:^(NSData *data) {
+    [_primus on:@"outgoing::data" listener:^(id data) {
         if (!_socket || !_socket.isConnected) {
             return;
         }
