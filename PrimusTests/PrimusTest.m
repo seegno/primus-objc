@@ -154,7 +154,7 @@ describe(@"Primus", ^{
 
         [primus emit:@"incoming::open"];
 
-        [primus emit:@"incoming::end"];
+        [primus emit:@"incoming::end", nil];
     });
 
     it(@"should reconnect when the connection closes unexpectedly", ^AsyncBlock {
@@ -164,7 +164,7 @@ describe(@"Primus", ^{
 
         [primus emit:@"incoming::open"];
 
-        [primus emit:@"incoming::end"];
+        [primus emit:@"incoming::end", nil];
     });
 
     it(@"should reset the reconnect details after a successful reconnect", ^AsyncBlock {

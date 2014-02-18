@@ -355,7 +355,7 @@
         _online = NO;
 
         [self emit:@"offline"];
-        [self emit:@"incoming::end"];
+        [self emit:@"incoming::end", nil];
     };
 
     id ping = ^{

@@ -71,7 +71,7 @@
 
 - (void)socketIODidDisconnect:(SocketIO *)socket disconnectedWithError:(NSError *)error
 {
-    [_primus emit:@"incoming::end"];
+    [_primus emit:@"incoming::end", nil];
 }
 
 - (void)socketIO:(SocketIO *)socket didReceiveEvent:(SocketIOPacket *)packet
