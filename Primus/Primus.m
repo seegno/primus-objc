@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Seegno. All rights reserved.
 //
 
+#import <libextobjc/EXTScope.h>
+
 #import "Primus.h"
 
 @implementation Primus
@@ -52,8 +54,11 @@
         _buffer = [[NSMutableArray alloc] init];
         _transformers = [[PrimusTransformers alloc] init];
         _timers = [[PrimusTimers alloc] init];
+        _reach = [Reachability reachabilityForInternetConnection];
+        _online = YES;
 
-        [self bindEvents];
+        [self bindRealtimeEvents];
+        [self bindNetworkEvents];
         [self initialize];
 
         if (!options.manual) {
@@ -67,7 +72,7 @@
 /**
  * Setup internal listeners.
  */
-- (void)bindEvents
+- (void)bindRealtimeEvents
 {
     [self on:@"outgoing::open" listener:^{
         _readyState = kPrimusReadyStateOpening;
@@ -173,6 +178,38 @@
             [self reconnect];
         }
     }];
+}
+
+/**
+ * Listen for network change events
+ */
+- (void)bindNetworkEvents
+{
+    @weakify(self);
+
+    _reach.reachableBlock = ^(Reachability *reach) {
+        @strongify(self);
+
+        self->_online = YES;
+
+        [self emit:@"online"];
+
+        if ([self.options.reconnect.strategies containsObject:@(kPrimusReconnectionStrategyOnline)]) {
+            [self reconnect];
+        }
+    };
+
+    _reach.unreachableBlock = ^(Reachability *reach) {
+        @strongify(self);
+
+        self->_online = NO;
+
+        [self emit:@"offline"];
+
+        [self end];
+    };
+
+    [_reach startNotifier];
 }
 
 /**

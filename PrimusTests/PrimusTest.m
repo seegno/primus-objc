@@ -27,7 +27,7 @@ describe(@"Primus", ^{
     });
 
     it(@"initializes with defaults", ^{
-        expect(primus.online).to.equal(NO);
+        expect(primus.online).to.equal(YES);
         expect(primus.writable).to.equal(NO);
         expect(primus.readyState).to.equal(kPrimusReadyStateClosed);
         expect(primus.options).to.beInstanceOf([PrimusConnectOptions class]);

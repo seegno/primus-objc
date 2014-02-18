@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Seegno. All rights reserved.
 //
 
+#import <Reachability/Reachability.h>
 #import <NSTimer-Blocks/NSTimer+Blocks.h>
 
 #import "TransformerProtocol.h"
@@ -31,6 +32,7 @@ typedef BOOL (^PrimusTransformCallback)(NSDictionary *data);
     NSUInteger _timeout;
     NSMutableArray *_buffer;
     PrimusTimers *_timers;
+    Reachability *_reach;
 }
 
 @property (nonatomic, readonly) BOOL online;
