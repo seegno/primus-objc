@@ -297,8 +297,8 @@
 /**
  * Send a new message.
  *
- * @param {Mixed} data The data that needs to be written.
- * @returns {Boolean} Always returns true.
+ * @param data  The data that needs to be written.
+ * @returns     Always returns true.
  */
 - (BOOL)write:(id)data
 {
@@ -410,8 +410,8 @@
  * Exponential back off algorithm for retry operations. It uses an randomized
  * retry so we don't DDOS our server when it goes down under pressure.
  *
- * @param {Function} callback Callback to be called after the timeout.
- * @param {Object} opts Options for configuring the timeout.
+ * @param callback  Callback to be called after the timeout.
+ * @param opts      Options for configuring the timeout.
  */
 - (void)backoff:(PrimusReconnectCallback)callback options:(PrimusReconnectOptions *)options
 {
@@ -476,7 +476,7 @@
 /**
  * Close the connection.
  *
- * @param {Mixed} data last packet of data.
+ * @param data  The last packet of data.
  */
 - (void)end:(id)data
 {
@@ -503,8 +503,8 @@
  * and outgoing data which is particularity handy for plugins that want to send
  * meta data together with the messages.
  *
- * @param {String} type Incoming or outgoing
- * @param {Function} fn A new message transformer.
+ * @param type  Incoming or outgoing
+ * @param fn    A new message transformer.
  */
 - (void)transform:(NSString *)type fn:(PrimusTransformCallback)fn
 {
