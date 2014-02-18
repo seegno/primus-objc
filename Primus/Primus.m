@@ -105,6 +105,8 @@
 
         [_timers.pong invalidate];
         _timers.pong = nil;
+
+        [self heartbeat];
     }];
 
     [self on:@"incoming::error" listener:^(NSError *error) {
@@ -344,7 +346,7 @@
 
     id pong = ^{
         [_timers.pong invalidate];
-        _timers = nil;
+        _timers.pong = nil;
 
         if (self.online) {
             return;
