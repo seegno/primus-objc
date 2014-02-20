@@ -9,8 +9,14 @@ pod 'libextobjc/EXTScope'
 pod 'socket.IO', :podspec => 'https://raw.github.com/nunofgs/cocoapods-specs/master/socket.IO/0.4.1/socket.IO.podspec'
 pod 'SocketRocket'
 
-target :PrimusTests do
-    link_with 'Primus', 'PrimusTests'
+target :PrimusTests, :exclusive => true do
+    pod 'Emitter'
+    pod 'Reachability'
+    pod 'NSTimer-Blocks'
+    pod 'libextobjc/EXTScope'
+
+    pod 'socket.IO', :podspec => 'https://raw.github.com/nunofgs/cocoapods-specs/master/socket.IO/0.4.1/socket.IO.podspec'
+    pod 'SocketRocket'
 
     pod 'Specta'
     pod 'Expecta'
