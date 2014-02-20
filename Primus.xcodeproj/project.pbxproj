@@ -13,6 +13,8 @@
 		E51005C01886BDD900A8F1F2 /* PrimusConnectOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = E51005BE1886BDD900A8F1F2 /* PrimusConnectOptions.m */; };
 		E51005C41887F38400A8F1F2 /* JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = E51005C21887F38400A8F1F2 /* JSON.h */; };
 		E51005C51887F38400A8F1F2 /* JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E51005C31887F38400A8F1F2 /* JSON.m */; };
+		E5682C9618B5175200F5D583 /* ParserProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = E5682C9418B5175200F5D583 /* ParserProtocol.h */; };
+		E5682C9718B5175200F5D583 /* TransformerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = E5682C9518B5175200F5D583 /* TransformerProtocol.h */; };
 		E58795751886A94C00913F61 /* PrimusTimers.m in Sources */ = {isa = PBXBuildFile; fileRef = E587956F1886A94300913F61 /* PrimusTimers.m */; };
 		E58795761886A94E00913F61 /* PrimusReconnectOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = E587956D1886A94300913F61 /* PrimusReconnectOptions.m */; };
 		E58795771886A95000913F61 /* PrimusTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = E58795711886A94300913F61 /* PrimusTransformers.m */; };
@@ -35,8 +37,6 @@
 		E5F94BF61885B5BD00170670 /* PrimusTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F94BF51885B5BD00170670 /* PrimusTest.m */; };
 		E5F94C031885B5E900170670 /* SocketIOClient.h in Headers */ = {isa = PBXBuildFile; fileRef = E5F94C011885B5E900170670 /* SocketIOClient.h */; };
 		E5F94C041885B5E900170670 /* SocketIOClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F94C021885B5E900170670 /* SocketIOClient.m */; };
-		E5F94C061885B5F200170670 /* TransformerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = E5F94C051885B5F200170670 /* TransformerProtocol.h */; };
-		E5F94C091885B60D00170670 /* ParserProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = E5F94C081885B60D00170670 /* ParserProtocol.h */; };
 		E5F94C0C1885B6C600170670 /* Primus.h in Headers */ = {isa = PBXBuildFile; fileRef = E5F94C0A1885B6C600170670 /* Primus.h */; };
 		E5F94C0D1885B6C600170670 /* Primus.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F94C0B1885B6C600170670 /* Primus.m */; };
 		E5FA210418893C8F00638647 /* SocketRocketClient.h in Headers */ = {isa = PBXBuildFile; fileRef = E5FA210218893C8F00638647 /* SocketRocketClient.h */; };
@@ -64,6 +64,9 @@
 		E51005BE1886BDD900A8F1F2 /* PrimusConnectOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrimusConnectOptions.m; sourceTree = "<group>"; };
 		E51005C21887F38400A8F1F2 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		E51005C31887F38400A8F1F2 /* JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSON.m; sourceTree = "<group>"; };
+		E5682C9418B5175200F5D583 /* ParserProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParserProtocol.h; sourceTree = "<group>"; };
+		E5682C9518B5175200F5D583 /* TransformerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformerProtocol.h; sourceTree = "<group>"; };
+		E5682C9818B5176300F5D583 /* PluginProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PluginProtocol.h; sourceTree = "<group>"; };
 		E587956A1886A94300913F61 /* PrimusError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrimusError.h; sourceTree = "<group>"; };
 		E587956C1886A94300913F61 /* PrimusReconnectOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrimusReconnectOptions.h; sourceTree = "<group>"; };
 		E587956D1886A94300913F61 /* PrimusReconnectOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrimusReconnectOptions.m; sourceTree = "<group>"; };
@@ -98,8 +101,6 @@
 		E5F94BF51885B5BD00170670 /* PrimusTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrimusTest.m; sourceTree = "<group>"; };
 		E5F94C011885B5E900170670 /* SocketIOClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOClient.h; sourceTree = "<group>"; };
 		E5F94C021885B5E900170670 /* SocketIOClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOClient.m; sourceTree = "<group>"; };
-		E5F94C051885B5F200170670 /* TransformerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransformerProtocol.h; path = Transformers/TransformerProtocol.h; sourceTree = "<group>"; };
-		E5F94C081885B60D00170670 /* ParserProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParserProtocol.h; path = Parsers/ParserProtocol.h; sourceTree = "<group>"; };
 		E5F94C0A1885B6C600170670 /* Primus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Primus.h; sourceTree = "<group>"; };
 		E5F94C0B1885B6C600170670 /* Primus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Primus.m; sourceTree = "<group>"; };
 		E5FA210218893C8F00638647 /* SocketRocketClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketRocketClient.h; sourceTree = "<group>"; };
@@ -266,8 +267,9 @@
 				E58795691886A94300913F61 /* Core */,
 				E5F94C071885B5FE00170670 /* Parsers */,
 				E5F94BFF1885B5E900170670 /* Transformers */,
-				E5F94C081885B60D00170670 /* ParserProtocol.h */,
-				E5F94C051885B5F200170670 /* TransformerProtocol.h */,
+				E5682C9418B5175200F5D583 /* ParserProtocol.h */,
+				E5682C9518B5175200F5D583 /* TransformerProtocol.h */,
+				E5682C9818B5176300F5D583 /* PluginProtocol.h */,
 				E5FA210618893DFE00638647 /* PrimusProtocol.h */,
 				E5F94C0A1885B6C600170670 /* Primus.h */,
 				E5F94C0B1885B6C600170670 /* Primus.m */,
@@ -356,14 +358,14 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5682C9718B5175200F5D583 /* TransformerProtocol.h in Headers */,
 				E51005C41887F38400A8F1F2 /* JSON.h in Headers */,
 				E5F94C031885B5E900170670 /* SocketIOClient.h in Headers */,
 				E5F94C0C1885B6C600170670 /* Primus.h in Headers */,
 				E5FA210418893C8F00638647 /* SocketRocketClient.h in Headers */,
-				E5F94C091885B60D00170670 /* ParserProtocol.h in Headers */,
+				E5682C9618B5175200F5D583 /* ParserProtocol.h in Headers */,
 				E51005BF1886BDD900A8F1F2 /* PrimusConnectOptions.h in Headers */,
 				E5FA210918893F1A00638647 /* Transformer.h in Headers */,
-				E5F94C061885B5F200170670 /* TransformerProtocol.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
