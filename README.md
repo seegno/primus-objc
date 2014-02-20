@@ -9,10 +9,8 @@ Currently supported transformers:
 
 ## Use it
 
-We are in the process of submitting the project to the official Cocoapods repository. In the meantime, clone this repository and add the following to your `Podfile`:
-
 ```ruby
-pod 'Primus', :path => '~/path/to/cloned/repo'
+pod 'Primus'
 
 pod 'SocketRocket'
 # or pod 'socket.IO'
@@ -21,7 +19,7 @@ pod 'SocketRocket'
 ## Quick Start
 
 ```objective-c
-#import <primus-objc/Primus.h>
+#import <Primus/Primus.h>
 
 - (void)start
 {
