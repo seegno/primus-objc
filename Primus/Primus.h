@@ -16,17 +16,7 @@
 #import "PrimusError.h"
 #import "PrimusTimers.h"
 #import "PrimusTransformers.h"
-#import "PrimusConnectOptions.h"
-#import "PrimusReconnectOptions.h"
 #import "PrimusProtocol.h"
-
-typedef NS_ENUM(int16_t, PrimusReadyState) {
-    kPrimusReadyStateClosed,
-    kPrimusReadyStateOpening,
-    kPrimusReadyStateOpen
-};
-
-typedef BOOL (^PrimusTransformCallback)(NSDictionary *data);
 
 @interface Primus : NSObject<PrimusProtocol>
 {
@@ -47,19 +37,5 @@ typedef BOOL (^PrimusTransformCallback)(NSDictionary *data);
 @property (nonatomic, readonly) NSDictionary *plugins;
 @property (nonatomic) id<TransformerProtocol> transformer;
 @property (nonatomic) id<ParserProtocol> parser;
-
-- (id)init __unavailable;
-- (id)initWithURL:(NSURL *)url;
-- (id)initWithURL:(NSURL *)url options:(PrimusConnectOptions *)options;
-- (id)initWithURLRequest:(NSURLRequest *)request;
-- (id)initWithURLRequest:(NSURLRequest *)request options:(PrimusConnectOptions *)options;
-
-- (void)open;
-- (BOOL)write:(id)data;
-- (void)backoff:(PrimusReconnectCallback)callback options:(PrimusReconnectOptions *)options;
-- (void)reconnect;
-- (void)end;
-- (void)end:(id)data;
-- (void)transform:(NSString *)type fn:(PrimusTransformCallback)fn;
 
 @end
