@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                  = "Primus"
-  s.version               = "0.0.1"
+  s.version               = "0.0.2"
   s.summary               = "Easily switch between different real-time Objective-C frameworks without any code changes."
   s.homepage              = "https://github.com/seegno/primus-objc"
   s.author                = "Seegno"
