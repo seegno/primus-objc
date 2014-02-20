@@ -16,16 +16,9 @@
 
     if (self) {
         _primus = primus;
-
-        [self bindEvents];
     }
 
     return self;
-}
-
-- (void)bindEvents
-{
-    [self doesNotRecognizeSelector:_cmd];
 }
 
 @end

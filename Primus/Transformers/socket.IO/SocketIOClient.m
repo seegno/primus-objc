@@ -12,6 +12,17 @@
 
 @implementation SocketIOClient
 
+- (id)initWithPrimus:(id<PrimusProtocol>)primus
+{
+    self = [super initWithPrimus:primus];
+
+    if (self) {
+        [self bindEvents];
+    }
+
+    return self;
+}
+
 - (void)bindEvents
 {
     [_primus on:@"outgoing::open" listener:^{

@@ -12,6 +12,4 @@
 
 - (id)initWithPrimus:(id<PrimusProtocol>)primus;
 
-- (void)bindEvents;
-
 @end
