@@ -37,6 +37,7 @@
         _pong = 10;
         _autodetect = YES;
         _manual = NO;
+        _plugins = nil;
         _transformerClass = transformerClass;
         _parserClass = nil;
 

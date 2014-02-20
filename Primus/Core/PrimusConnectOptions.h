@@ -10,15 +10,16 @@
 
 @interface PrimusConnectOptions : NSObject<NSCopying>
 
-@property (nonatomic) PrimusReconnectOptions *reconnect;    // Stores the back off configuration
-@property (nonatomic, readonly) NSArray *strategy;          // Default reconnect strategies
-@property (nonatomic) NSTimeInterval timeout;               // Connection timeout duration
-@property (nonatomic) NSTimeInterval ping;                  // Heartbeat ping interval
-@property (nonatomic) NSTimeInterval pong;                  // Heartbeat pong response timeout.
-@property (nonatomic) BOOL autodetect;                      // Autodetect transformer and parser
-@property (nonatomic) BOOL manual;                          // Manual connection
-@property (nonatomic, assign) Class transformerClass;       // Transformer
-@property (nonatomic, assign) Class parserClass;            // Parser
+@property (nonatomic) PrimusReconnectOptions *reconnect; // Stores the back off configuration
+@property (nonatomic) NSArray *strategy;                 // Default reconnect strategies
+@property (nonatomic) NSTimeInterval timeout;            // Connection timeout duration
+@property (nonatomic) NSTimeInterval ping;               // Heartbeat ping interval
+@property (nonatomic) NSTimeInterval pong;               // Heartbeat pong response timeout.
+@property (nonatomic) BOOL autodetect;                   // Autodetect transformer and parser
+@property (nonatomic) BOOL manual;                       // Manual connection
+@property (nonatomic) NSDictionary *plugins;             // Plugins to load
+@property (nonatomic) Class transformerClass;            // Transformer
+@property (nonatomic) Class parserClass;                 // Parser
 
 - (id)initWithStrategy:(NSArray *)strategy;
 

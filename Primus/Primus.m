@@ -7,6 +7,7 @@
 //
 
 #import <libextobjc/EXTScope.h>
+#import <objc/runtime.h>
 
 #import "Primus.h"
 
@@ -245,10 +246,10 @@
         @throw [NSException exceptionWithName:NSInvalidArgumentException reason:@"Parser does not implement ParserProtocol." userInfo:nil];
     }
 
+    // Initialize the transformer and parser
     self.options.transformerClass = transformerClass;
     self.options.parserClass = parserClass;
 
-    // Initialize the transformer and parser
     _transformer = [[self.options.transformerClass alloc] initWithPrimus:self];
     _parser = [[self.options.parserClass alloc] init];
 
@@ -290,6 +291,30 @@
     if (!self.parser) {
         @throw [NSException exceptionWithName:NSInvalidArgumentException reason:@"No parser specified." userInfo:nil];
     }
+
+    // Resolve and instantiate plugins
+    NSMutableDictionary *plugins = [[NSMutableDictionary alloc] init];
+
+    for (NSString *pluginName in self.options.plugins.allKeys) {
+        id pluginClass = self.options.plugins[pluginName];
+        id plugin = nil;
+
+        if ([pluginClass isKindOfClass:NSString.class]) {
+            plugin = [NSClassFromString(pluginClass) alloc];
+        }
+
+        if (class_isMetaClass(object_getClass(pluginClass))) {
+            plugin = [(Class)pluginClass alloc];
+        }
+
+        if (![plugin conformsToProtocol:@protocol(PluginProtocol)]) {
+            @throw [NSException exceptionWithName:NSInvalidArgumentException reason:@"Plugin should be a class whose instances conform to PluginProtocol" userInfo:nil];
+        }
+
+        plugins[pluginName] = [plugin initWithPrimus:self];
+    }
+
+    _plugins = [NSDictionary dictionaryWithDictionary:plugins];
 
     [self emit:@"outgoing::open"];
 }

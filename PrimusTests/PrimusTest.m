@@ -203,6 +203,36 @@ describe(@"Primus", ^{
 
         [primus emit:@"incoming::open"];
     });
+
+    it(@"throws an error if the plugin name is invalid", ^{
+        PrimusConnectOptions *options = [[PrimusConnectOptions alloc] init];
+
+        options.manual = YES;
+        options.plugins = @{ @"example-plugin": NSStringFromClass(NSObject.class) };
+
+        Primus *primusWithPlugins = [[Primus alloc] initWithURL:[NSURL URLWithString:@"http://127.0.0.1"] options:options];
+
+        primusWithPlugins.transformer = mockObjectAndProtocol([NSObject class], @protocol(TransformerProtocol));
+
+        expect(^{
+            [primusWithPlugins open];
+        }).to.raiseWithReason(@"NSInvalidArgumentException", @"Plugin should be a class whose instances conform to PluginProtocol");
+    });
+
+    it(@"throws an error if the plugin class is invalid", ^{
+        PrimusConnectOptions *options = [[PrimusConnectOptions alloc] init];
+
+        options.manual = YES;
+        options.plugins = @{ @"example-plugin": NSObject.class };
+
+        Primus *primusWithPlugins = [[Primus alloc] initWithURL:[NSURL URLWithString:@"http://127.0.0.1"] options:options];
+
+        primusWithPlugins.transformer = mockObjectAndProtocol([NSObject class], @protocol(TransformerProtocol));
+
+        expect(^{
+            [primusWithPlugins open];
+        }).to.raiseWithReason(@"NSInvalidArgumentException", @"Plugin should be a class whose instances conform to PluginProtocol");
+    });
 });
 
 SpecEnd

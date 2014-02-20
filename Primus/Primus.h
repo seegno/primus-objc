@@ -11,6 +11,7 @@
 
 #import "TransformerProtocol.h"
 #import "ParserProtocol.h"
+#import "PluginProtocol.h"
 
 #import "PrimusError.h"
 #import "PrimusTimers.h"
@@ -43,6 +44,7 @@ typedef BOOL (^PrimusTransformCallback)(NSDictionary *data);
 @property (nonatomic, readonly) PrimusReconnectOptions *attemptOptions;
 
 @property (nonatomic, readonly) PrimusTransformers *transformers;
+@property (nonatomic, readonly) NSDictionary *plugins;
 @property (nonatomic) id<TransformerProtocol> transformer;
 @property (nonatomic) id<ParserProtocol> parser;
 
