@@ -56,17 +56,17 @@ describe(@"JSON", ^{
         }];
     });
 
-    it(@"decodes string data", ^AsyncBlock {
-        [serializer decode:@"string-data" callback:^(NSError *error, id data) {
+    it(@"decodes dictionary data", ^AsyncBlock {
+        [serializer decode:@{ @"key": @"value" } callback:^(NSError *error, id data) {
             expect(error).to.beNil();
-            expect(data).to.equal(@"string-data");
+            expect(data).to.equal(@{ @"key": @"value" });
 
             done();
         }];
     });
 
     it(@"returns error during decoding", ^AsyncBlock {
-        [serializer decode:@123 callback:^(NSError *error, id data) {
+        [serializer decode:[@"{\"key\"}" dataUsingEncoding:NSUTF8StringEncoding] callback:^(NSError *error, id data) {
             expect(error).notTo.beNil();
             expect(data).to.beNil();
 

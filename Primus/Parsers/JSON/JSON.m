@@ -35,7 +35,11 @@
     NSError *error = nil;
 
     @try {
-        if (NO == [raw isKindOfClass:[NSString class]]) {
+        if ([raw isKindOfClass:NSString.class]) {
+            raw = [raw dataUsingEncoding:NSUTF8StringEncoding];
+        }
+
+        if ([raw isKindOfClass:NSData.class]) {
             raw = [NSJSONSerialization JSONObjectWithData:raw options:NSJSONReadingAllowFragments error:&error];
         }
     }
