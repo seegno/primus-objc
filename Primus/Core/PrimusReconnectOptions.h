@@ -29,8 +29,22 @@ typedef void (^PrimusReconnectCallback)(NSError *error, PrimusReconnectOptions *
 @property (nonatomic) BOOL authorization;         // Authorization
 @property (nonatomic) NSMutableSet *strategies;   // Strategies
 
+/**
+ *  Initialize the options using a custom connection strategy.
+ *
+ *  @param strategy An array of connection strategies.
+ *
+ *  @return A PrimusReconnectOptions instance.
+ */
 - (id)initWithStrategy:(NSArray *)strategy;
 
+/**
+ *  Initialize the options using another instance of a reconnect options object.
+ *
+ *  @param options An instance of a PrimusReconnectOptions object.
+ *
+ *  @return A PrimusReconnectOptions instance.
+ */
 - (id)initWithOptions:(PrimusReconnectOptions *)options;
 
 @end

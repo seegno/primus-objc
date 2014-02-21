@@ -14,7 +14,14 @@
 @property (nonatomic) NSTimer *connect;
 @property (nonatomic) NSTimer *reconnect;
 
+/**
+ *  Invalidate all timers.
+ */
 - (void)invalidateAll;
+
+/**
+ *  Invalidate and release all timers.
+ */
 - (void)clearAll;
 
 @end

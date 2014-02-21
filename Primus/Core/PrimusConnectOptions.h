@@ -21,10 +21,33 @@
 @property (nonatomic) Class transformerClass;            // Transformer
 @property (nonatomic) Class parserClass;                 // Parser
 
+/**
+ *  Initialize the options using a custom connection strategy.
+ *
+ *  @param strategy An array of connection strategies.
+ *
+ *  @return A PrimusConnectOptions instance.
+ */
 - (id)initWithStrategy:(NSArray *)strategy;
 
+/**
+ *  Initialize the options using a custom transformer.
+ *
+ *  @param transformerClass The class object of the transformer.
+ *
+ *  @return A PrimusConnectOptions instance.
+ */
 - (id)initWithTransformerClass:(Class)transformerClass;
 
+/**
+ *  Initialize the options using a custom transfomer and a custom
+ *  connection strategy.
+ *
+ *  @param transformerClass The class object of the transformer.
+ *  @param strategy         An array of connection strategies.
+ *
+ *  @return A PrimusConnectOptions instance.
+ */
 - (id)initWithTransformerClass:(Class)transformerClass andStrategy:(NSArray *)strategy;
 
 @end

@@ -11,6 +11,13 @@
 @property (nonatomic) NSMutableArray *incoming;
 @property (nonatomic) NSMutableArray *outgoing;
 
+/**
+ *  Maps the server-side Primus transformer to an objective-c client class.
+ *
+ *  @param transformer The transformer name as defined in the Primus javascript implementation.
+ *
+ *  @return The name of the objective-c client transformer.
+ */
 - (NSString *)mapTransformer:(NSString *)transformer;
 
 @end

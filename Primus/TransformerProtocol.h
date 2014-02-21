@@ -10,6 +10,13 @@
 
 @protocol TransformerProtocol <NSObject>
 
+/**
+ *  Initializes the transformer with a Primus instance.
+ *
+ *  @param primus An initialized Primus instance.
+ *
+ *  @return A Plugin instance.
+ */
 - (id)initWithPrimus:(id<PrimusProtocol>)primus;
 
 @end
