@@ -1,7 +1,7 @@
 PODS:
   - BlocksKit/DynamicDelegate (2.0.0):
     - libffi
-  - Emitter (0.0.3):
+  - Emitter (0.0.5):
     - BlocksKit/DynamicDelegate (~> 2.0.0)
     - SLObjectiveCRuntimeAdditions (~> 1.1.2)
   - Expecta (0.2.3)
@@ -36,7 +36,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   BlocksKit: b29ee3f28ba06a09f5c64987314ce5b75b2c3962
-  Emitter: 9be3b79b2ecd889d27aa1fa4d395a8656c8a2ff4
+  Emitter: 3a879b431df550a28ce78afd7f8029f1cdc04668
   Expecta: dbc4a27fabb853bdd2e907e33f11ee43a9a47d0c
   libextobjc: 2c9fc8226f0f38e562587f65172f93f0c9b4a47a
   NSTimer-Blocks: 99f52d61c29429d7e8ef0c82e596f317addb9421
