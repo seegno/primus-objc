@@ -19,4 +19,13 @@
  */
 - (id)initWithPrimus:(id<PrimusProtocol>)primus;
 
+@optional
+
+/**
+ *  Returns an identifier for the currently connected client.
+ *
+ *  @return A string identifier.
+ */
+- (NSString *)id;
+
 @end

@@ -140,6 +140,10 @@
                 if ([data hasPrefix:@"primus::pong::"]) {
                     return [self emit:@"incoming::pong", [data substringFromIndex:14]];
                 }
+
+                if ([data hasPrefix:@"primus::id::"]) {
+                    return [self emit:@"incoming::id", [data substringFromIndex:12]];
+                }
             }
 
             for (PrimusTransformCallback transform in self.transformers.incoming) {
@@ -356,6 +360,22 @@
     }];
 
     return YES;
+}
+
+/**
+ * Retrieve the current id from the server.
+ *
+ * @param fn Callback function.
+ */
+- (void)id:(PrimusIdCallback)fn
+{
+    if (self.transformer && [self.transformer respondsToSelector:@selector(id)]) {
+        return fn(self.transformer.id);
+    }
+
+    [self write:@"primus::id::"];
+
+    [self once:@"incoming::id" listener:fn];
 }
 
 /**

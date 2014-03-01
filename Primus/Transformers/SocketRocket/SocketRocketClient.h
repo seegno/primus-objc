@@ -16,6 +16,7 @@
 {
     SRWebSocket *_socket;
 }
+
 @end
 
 #endif

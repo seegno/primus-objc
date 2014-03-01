@@ -23,7 +23,7 @@ describe(@"Primus", ^{
 
         primus = [[Primus alloc] initWithURL:url options:options];
 
-        primus.transformer = mockObjectAndProtocol([NSObject class], @protocol(TransformerProtocol));
+        primus.transformer = mockRequiredObjectAndProtocol([NSObject class], @protocol(TransformerProtocol));
     });
 
     it(@"initializes with defaults", ^{
@@ -125,6 +125,34 @@ describe(@"Primus", ^{
         }];
 
         [primus emit:@"incoming::open"];
+    });
+
+    it(@"should do nothing if id is unavailable", ^{
+        [primus id:^(NSString *socketId) {
+            XCTFail(@"listener should not fire");
+        }];
+    });
+
+    it(@"should return id from transformer if one is available", ^AsyncBlock {
+        primus.transformer = mockObjectAndProtocol([NSObject class], @protocol(TransformerProtocol));
+
+        [given([primus.transformer id]) willReturn:@"123"];
+
+        [primus id:^(NSString *socketId) {
+            expect(socketId).to.equal(@"123");
+
+            done();
+        }];
+    });
+
+    it(@"should return id when `incoming::id` is emitted", ^AsyncBlock {
+        [primus id:^(NSString *socketId) {
+            expect(socketId).to.equal(@"123");
+
+            done();
+        }];
+
+        [primus emit:@"incoming::id", @"123"];
     });
 
     it(@"should not open the socket if the state is manual", ^{

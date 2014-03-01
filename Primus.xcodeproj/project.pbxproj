@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0E1F45BA2BF240B2BD7E88A6 /* libPods-PrimusTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 696217F923984D21B38AC44D /* libPods-PrimusTests.a */; };
 		7B88A21B8E034D248EAEB977 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CBC4DD3581504004B2A19645 /* libPods.a */; };
+		E500D4DD18C0CD38001FE7CE /* MKTRequiredObjectAndProtocolMock.h in Headers */ = {isa = PBXBuildFile; fileRef = E500D4DB18C0CD38001FE7CE /* MKTRequiredObjectAndProtocolMock.h */; };
+		E500D4DE18C0CD38001FE7CE /* MKTRequiredObjectAndProtocolMock.m in Sources */ = {isa = PBXBuildFile; fileRef = E500D4DC18C0CD38001FE7CE /* MKTRequiredObjectAndProtocolMock.m */; };
 		E51005BF1886BDD900A8F1F2 /* PrimusConnectOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = E51005BD1886BDD900A8F1F2 /* PrimusConnectOptions.h */; };
 		E51005C01886BDD900A8F1F2 /* PrimusConnectOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = E51005BE1886BDD900A8F1F2 /* PrimusConnectOptions.m */; };
 		E51005C41887F38400A8F1F2 /* JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = E51005C21887F38400A8F1F2 /* JSON.h */; };
@@ -60,6 +62,8 @@
 		7277FA3FA18740E789A9F58C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		74A248551C9F4EEF8E00F4EE /* Pods-PrimusTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrimusTests.xcconfig"; path = "Pods/Pods-PrimusTests.xcconfig"; sourceTree = "<group>"; };
 		CBC4DD3581504004B2A19645 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E500D4DB18C0CD38001FE7CE /* MKTRequiredObjectAndProtocolMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTRequiredObjectAndProtocolMock.h; sourceTree = "<group>"; };
+		E500D4DC18C0CD38001FE7CE /* MKTRequiredObjectAndProtocolMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTRequiredObjectAndProtocolMock.m; sourceTree = "<group>"; };
 		E51005BD1886BDD900A8F1F2 /* PrimusConnectOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrimusConnectOptions.h; sourceTree = "<group>"; };
 		E51005BE1886BDD900A8F1F2 /* PrimusConnectOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrimusConnectOptions.m; sourceTree = "<group>"; };
 		E51005C21887F38400A8F1F2 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
@@ -134,6 +138,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E500D4DA18C0CD1E001FE7CE /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				E500D4DB18C0CD38001FE7CE /* MKTRequiredObjectAndProtocolMock.h */,
+				E500D4DC18C0CD38001FE7CE /* MKTRequiredObjectAndProtocolMock.m */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		E51005C11887F38400A8F1F2 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				E5F94BF01885B5BD00170670 /* Supporting Files */,
+				E500D4DA18C0CD1E001FE7CE /* Mock */,
 				E5ECB59718AA803700FC96F7 /* Core */,
 				E5ECB5A018AAAD7B00FC96F7 /* Parsers */,
 				E5ECB5A218AAAD9B00FC96F7 /* Transformers */,
@@ -351,6 +365,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E500D4DD18C0CD38001FE7CE /* MKTRequiredObjectAndProtocolMock.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,6 +563,7 @@
 				E5ECB59F18AAA69300FC96F7 /* PrimusTransformers.m in Sources */,
 				E5ECB59D18AA8E1700FC96F7 /* PrimusTimersTest.m in Sources */,
 				E5ECB5A618AAADB400FC96F7 /* JSONTest.m in Sources */,
+				E500D4DE18C0CD38001FE7CE /* MKTRequiredObjectAndProtocolMock.m in Sources */,
 				E5DEB03D18ABF47D00EAC444 /* TransformerBehaviorTest.m in Sources */,
 				E5ECB59918AA803700FC96F7 /* PrimusReconnectOptionsTest.m in Sources */,
 				E5F94BF61885B5BD00170670 /* PrimusTest.m in Sources */,

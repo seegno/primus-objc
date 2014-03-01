@@ -13,6 +13,8 @@
 
 #define recursiveBlock(outerBlock, innerBlock) void (^outerBlock)(); __block void (^block)() = outerBlock; innerBlock(block);
 
+typedef void (^PrimusIdCallback)(NSString *socketId);
+
 typedef NS_ENUM(int16_t, PrimusReadyState) {
     kPrimusReadyStateClosed,
     kPrimusReadyStateOpening,
@@ -83,6 +85,13 @@ typedef BOOL (^PrimusTransformCallback)(NSDictionary *data);
  *  @return True if the data was written successfully, false otherwise.
  */
 - (BOOL)write:(id)data;
+
+/**
+ * Retrieve the current id from the server.
+ *
+ * @param fn Callback function.
+ */
+- (void)id:(PrimusIdCallback)fn;
 
 /**
  *  Closes the connection.

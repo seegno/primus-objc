@@ -12,3 +12,11 @@
 #import <Specta/Specta.h>
 #import <Expecta/Expecta.h>
 #import <OCMockito/OCMockito.h>
+
+#import "MKTRequiredObjectAndProtocolMock.h"
+
+#define MKTRequiredObjectAndProtocolMock(aClass, aProtocol) (id)[MKTRequiredObjectAndProtocolMock mockForClass:aClass protocol:aProtocol]
+
+#ifdef MOCKITO_SHORTHAND
+#define mockRequiredObjectAndProtocol(aClass, aProtocol) (id)MKTRequiredObjectAndProtocolMock(aClass, aProtocol)
+#endif

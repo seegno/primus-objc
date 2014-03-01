@@ -75,6 +75,11 @@
     }];
 }
 
+- (NSString *)id
+{
+    return _socket.sid;
+}
+
 - (void)socketIODidConnect:(SocketIO *)socket
 {
     [_primus emit:@"incoming::open"];
