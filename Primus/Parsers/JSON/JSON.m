@@ -15,7 +15,9 @@
     NSError *error = nil;
 
     @try {
-        if (NO == [raw isKindOfClass:[NSString class]]) {
+        if ([raw isKindOfClass:[NSString class]]) {
+            raw = [[NSString stringWithFormat:@"\"%@\"", raw] dataUsingEncoding:NSUTF8StringEncoding];
+        } else {
             raw = [NSJSONSerialization dataWithJSONObject:raw options:0 error:&error];
         }
     }
