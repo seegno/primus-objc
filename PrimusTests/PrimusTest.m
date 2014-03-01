@@ -179,7 +179,7 @@ describe(@"Primus", ^{
             done();
         }];
 
-        [primus reconnect];
+        [primus performSelector:@selector(reconnect)];
     });
 
     it(@"should change readyStates", ^AsyncBlock {
