@@ -230,7 +230,7 @@
         NSDictionary *spec = [self getJSONData:[self.request.URL URLByAppendingPathComponent:@"spec"]];
 
         transformerClass = NSClassFromString([self.transformers mapTransformer:spec[@"transformer"]]);
-        parserClass = NSClassFromString(spec[@"parser"]);
+        parserClass = NSClassFromString([spec[@"parser"] uppercaseString]);
     }
 
     // If there is no parser set, use JSON as default
