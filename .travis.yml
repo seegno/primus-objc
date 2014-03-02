@@ -1,0 +1,9 @@
+language: objective-c
+xcode_workspace: Primus.xcworkspace
+xcode_scheme: Primus
+before_install:
+  - gem install cocoapods
+before_script:
+  - brew update
+  - brew upgrade xctool
+  - npm install
