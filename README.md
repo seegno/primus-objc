@@ -54,10 +54,6 @@ Since we haven't specified a transformer, Primus will connect to then `/spec` [e
         NSLog(@"[%@] %@ - %@", @"reconnect", @"Reconnecting", @"We are scheduling a new reconnect attempt");
     }];
 
-    [primus on:@"reconnect" listener:^{
-        NSLog(@"[%@] %@ - %@", @"reconnect", @"Reconnect", @"Starting the reconnect attempt, hopefully we get a connection!");
-    }];
-
     [primus on:@"online" listener:^{
         NSLog(@"[%@] %@ - %@", @"network", @"Online", @"We have regained control over our internet connection.");
     }];
@@ -156,7 +152,9 @@ Broadcasting allows you to write a message to the server. You can currently broa
 
 You can easily disconnect from the server by calling the `end` method. Primus will also emit an `end` event when it has successfully disconnected.
 
+```objective-c
 [primus end];
+```
 
 ## Events
 
@@ -190,11 +188,11 @@ The Primus heartbeat mechanism has been implemented as described in the [origina
 
 ## Plugins
 
-The Primus javascript framework [allows for plugins](https://github.com/primus/primus#plugins) on the server-side.
+The Primus javascript framework [allows for plugins](https://github.com/primus/primus#plugins) on the server-side and the client-side.
 
-Primus-Objc also supports client-side plugins as well as message transformers.
+Primus-Objc supports client-side plugins as well as message transformers.
 
-### Transforming And Intercepting Messages
+### Transforming and Intercepting Messages
 
 You can intercept and transform `incoming` or `outgoing` data by registering a transform block:
 
