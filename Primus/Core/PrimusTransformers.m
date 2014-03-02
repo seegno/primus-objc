@@ -25,7 +25,8 @@
 - (NSString *)mapTransformer:(NSString *)transformer
 {
     return @{
-        @"websockets": @"SocketRocketClient"
+        @"websockets": @"SocketRocketClient",
+        @"socket.io": @"SocketIOClient"
     }[transformer];
 }
 
