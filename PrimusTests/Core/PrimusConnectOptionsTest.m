@@ -30,7 +30,7 @@ describe(@"PrimusConnectOptions", ^{
 
         PrimusConnectOptions *options = [[PrimusConnectOptions alloc] initWithTransformerClass:fakeClass];
 
-        expect([options.transformerClass class]).to.equal([fakeClass class]);
+        expect(options.transformerClass.description).to.equal(@"mock class of NSArray");
     });
 
     it(@"initializes with default reconnect strategy", ^{
@@ -49,7 +49,7 @@ describe(@"PrimusConnectOptions", ^{
 
         PrimusConnectOptions *options = [[PrimusConnectOptions alloc] initWithTransformerClass:fakeClass andStrategy:strategy];
 
-        expect([options.transformerClass class]).to.equal([fakeClass class]);
+        expect(options.transformerClass.description).to.equal(@"mock class of NSArray");
 
         expect(options.reconnect.strategies).to.haveCountOf(1);
         expect(options.reconnect.strategies).to.contain(@(kPrimusReconnectionStrategyTimeout));
