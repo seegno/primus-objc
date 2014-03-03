@@ -34,7 +34,7 @@ sharedExamplesFor(@"a transformer", ^(NSDictionary *data) {
         // Launch the node server process
         server = [[NSTask alloc] init];
         server.launchPath = [[NSProcessInfo processInfo] environment][@"SHELL"];
-        server.arguments = @[@"--interactive", @"-c", [@"node " stringByAppendingString:path]];
+        server.arguments = @[@"-i", @"-c", [@"node " stringByAppendingString:path]];
         server.standardOutput = [NSPipe pipe];
 
         [server launch];
