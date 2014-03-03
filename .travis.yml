@@ -6,4 +6,5 @@ before_install:
 before_script:
   - brew update
   - brew upgrade xctool
+  - brew install npm
   - npm install
