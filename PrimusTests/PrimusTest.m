@@ -232,6 +232,70 @@ describe(@"Primus", ^{
         [primus emit:@"incoming::open"];
     });
 
+    it(@"should modify data on an incoming transformer", ^AsyncBlock {
+        [primus transform:@"incoming" fn:^BOOL(NSMutableDictionary *data) {
+            data[@"data"] = @{ @"example": @"data" };
+
+            return YES;
+        }];
+
+        [primus on:@"data" listener:^(NSString *data) {
+            expect(data).to.equal(@{ @"example": @"data" });
+        }];
+
+        [primus emit:@"incoming::data", [@"{\"key\":\"value\"}" dataUsingEncoding:NSUTF8StringEncoding]];
+
+        done();
+    });
+
+    it(@"should not emit `data` event when returning NO from an incoming transformer", ^AsyncBlock {
+        [primus transform:@"incoming" fn:^BOOL(NSDictionary *data) {
+            return NO;
+        }];
+
+        [primus on:@"data" listener:^{
+            XCTFail(@"listener should not fire");
+        }];
+
+        [primus emit:@"incoming::data", [@"{\"key\":\"value\"}" dataUsingEncoding:NSUTF8StringEncoding]];
+
+        done();
+    });
+
+    it(@"should modify data on an outgoing transformer", ^AsyncBlock {
+        [primus transform:@"outgoing" fn:^BOOL(NSMutableDictionary *data) {
+            data[@"data"] = @"foo";
+
+            return YES;
+        }];
+
+        [primus emit:@"incoming::open"];
+
+        [primus on:@"outgoing::data" listener:^(NSString *data) {
+            expect(data).to.equal([@"\"foo\"" dataUsingEncoding:NSUTF8StringEncoding]);
+        }];
+
+        [primus write:@{ @"example": @"parameter" }];
+        
+        done();
+    });
+
+    it(@"should not emit `data` event when returning NO from an outgoing transformer", ^AsyncBlock {
+        [primus transform:@"outgoing" fn:^BOOL(NSDictionary *data) {
+            return NO;
+        }];
+
+        [primus emit:@"incoming::open"];
+
+        [primus on:@"outgoing::data" listener:^{
+            XCTFail(@"listener should not fire");
+        }];
+
+        [primus write:@{ @"example": @"parameter" }];
+
+        done();
+    });
+
     it(@"throws an error if the plugin name is invalid", ^{
         PrimusConnectOptions *options = [[PrimusConnectOptions alloc] init];
 

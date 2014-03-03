@@ -21,7 +21,7 @@ typedef NS_ENUM(int16_t, PrimusReadyState) {
     kPrimusReadyStateOpen
 };
 
-typedef BOOL (^PrimusTransformCallback)(NSDictionary *data);
+typedef BOOL (^PrimusTransformCallback)(NSMutableDictionary *data);
 
 @protocol PrimusProtocol <NSObject>
 

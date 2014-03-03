@@ -147,7 +147,7 @@
             }
 
             for (PrimusTransformCallback transform in self.transformers.incoming) {
-                NSDictionary *packet = @{ @"data": data };
+                NSMutableDictionary *packet = [@{ @"data": data } mutableCopy];
 
                 if (NO == transform(packet)) {
                     // When false is returned by an incoming transformer it means that's
@@ -338,7 +338,7 @@
     }
 
     for (PrimusTransformCallback transform in self.transformers.outgoing) {
-        NSDictionary *packet = @{ @"data": data };
+        NSMutableDictionary *packet = [@{ @"data": data } mutableCopy];
 
         if (NO == transform(packet)) {
             // When false is returned by an incoming transformer it means that's
