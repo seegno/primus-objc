@@ -4,6 +4,8 @@ Primus-Objc is an implementation of the [Primus](https://github.com/primus/primu
 
 The library is fully unit tested using [Specta](https://github.com/specta/specta), [Expecta](https://github.com/specta/expecta) and [OCMockito](https://github.com/jonreid/OCMockito).
 
+[![Build Status](https://travis-ci.org/seegno/primus-objc.png)](https://travis-ci.org/seegno/primus-objc)
+
 Currently supported real-time frameworks:
 
 * [SocketRocket](https://github.com/square/SocketRocket)
