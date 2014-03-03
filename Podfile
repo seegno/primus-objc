@@ -6,7 +6,7 @@ pod 'Reachability'
 pod 'NSTimer-Blocks'
 pod 'libextobjc/EXTScope'
 
-pod 'socket.IO', :podspec => 'https://raw.github.com/nunofgs/cocoapods-specs/master/socket.IO/0.4.1/socket.IO.podspec'
+pod 'socket.IO'
 pod 'SocketRocket'
 
 target :PrimusTests, :exclusive => true do
@@ -15,7 +15,7 @@ target :PrimusTests, :exclusive => true do
     pod 'NSTimer-Blocks'
     pod 'libextobjc/EXTScope'
 
-    pod 'socket.IO', :podspec => 'https://raw.github.com/nunofgs/cocoapods-specs/master/socket.IO/0.4.1/socket.IO.podspec'
+    pod 'socket.IO'
     pod 'SocketRocket'
 
     pod 'Specta'
