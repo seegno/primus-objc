@@ -177,7 +177,7 @@ Event                 | Usage      | Location | Description
 `incoming::end`       | private    | client   | Transformer closed the connection.
 `outgoing::end`       | private    | client   | Transformer should close connection.
 `end`                 | **public** | client   | Primus has ended.
-`close`               | **public** | client   | The underlaying connection is closed, we might retry.
+`close`               | **public** | client   | The underlying connection is closed, we might retry.
 `initialised`         | **public** | client   | The server is initialised.
 `incoming::pong`      | private    | client   | We received a pong message.
 `outgoing::ping`      | private    | client   | We're sending a ping message.

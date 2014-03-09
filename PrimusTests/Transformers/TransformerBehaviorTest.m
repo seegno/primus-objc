@@ -1,5 +1,5 @@
 //
-//  TransfomerBehaviorTest.m
+//  TransformerBehaviorTest.m
 //  PrimusTests
 //
 //  Created by Nuno Sousa on 14/01/14.
@@ -8,7 +8,7 @@
 
 #import "Primus.h"
 
-SharedExamplesBegin(TransfomerBehavior)
+SharedExamplesBegin(TransformerBehavior)
 
 sharedExamplesFor(@"a transformer", ^(NSDictionary *data) {
     setAsyncSpecTimeout(10);

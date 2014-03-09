@@ -42,7 +42,7 @@ describe(@"PrimusConnectOptions", ^{
         expect(options.reconnect.strategies).to.contain(@(kPrimusReconnectionStrategyTimeout));
     });
 
-    it(@"initializes with transfomer class and default reconnect strategy", ^{
+    it(@"initializes with transformer class and default reconnect strategy", ^{
         id fakeClass = mockClass([NSArray class]);
 
         NSArray *strategy = @[@(kPrimusReconnectionStrategyTimeout)];

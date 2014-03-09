@@ -40,7 +40,7 @@
 - (id)initWithTransformerClass:(Class)transformerClass;
 
 /**
- *  Initialize the options using a custom transfomer and a custom
+ *  Initialize the options using a custom transformer and a custom
  *  connection strategy.
  *
  *  @param transformerClass The class object of the transformer.
