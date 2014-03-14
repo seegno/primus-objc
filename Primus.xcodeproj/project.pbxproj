@@ -20,6 +20,8 @@
 		E58795751886A94C00913F61 /* PrimusTimers.m in Sources */ = {isa = PBXBuildFile; fileRef = E587956F1886A94300913F61 /* PrimusTimers.m */; };
 		E58795761886A94E00913F61 /* PrimusReconnectOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = E587956D1886A94300913F61 /* PrimusReconnectOptions.m */; };
 		E58795771886A95000913F61 /* PrimusTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = E58795711886A94300913F61 /* PrimusTransformers.m */; };
+		E59D15A518D38401006CFE49 /* SocketRocketWebSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = E59D15A318D38401006CFE49 /* SocketRocketWebSocket.h */; };
+		E59D15A618D38401006CFE49 /* SocketRocketWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = E59D15A418D38401006CFE49 /* SocketRocketWebSocket.m */; };
 		E5DEB03418AB90A500EAC444 /* SocketRocketClientTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DEB03318AB90A500EAC444 /* SocketRocketClientTest.m */; };
 		E5DEB03D18ABF47D00EAC444 /* TransformerBehaviorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DEB03C18ABF47D00EAC444 /* TransformerBehaviorTest.m */; };
 		E5DEB03F18ABFC9C00EAC444 /* SocketIOClientTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DEB03E18ABFC9C00EAC444 /* SocketIOClientTest.m */; };
@@ -79,6 +81,8 @@
 		E58795701886A94300913F61 /* PrimusTransformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrimusTransformers.h; sourceTree = "<group>"; };
 		E58795711886A94300913F61 /* PrimusTransformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrimusTransformers.m; sourceTree = "<group>"; };
 		E591EB1618A9195D00138959 /* Primus.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Primus.podspec; sourceTree = "<group>"; };
+		E59D15A318D38401006CFE49 /* SocketRocketWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketRocketWebSocket.h; sourceTree = "<group>"; };
+		E59D15A418D38401006CFE49 /* SocketRocketWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketRocketWebSocket.m; sourceTree = "<group>"; };
 		E5DEB03318AB90A500EAC444 /* SocketRocketClientTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketRocketClientTest.m; sourceTree = "<group>"; };
 		E5DEB03C18ABF47D00EAC444 /* TransformerBehaviorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransformerBehaviorTest.m; sourceTree = "<group>"; };
 		E5DEB03E18ABFC9C00EAC444 /* SocketIOClientTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOClientTest.m; sourceTree = "<group>"; };
@@ -354,6 +358,8 @@
 			children = (
 				E5FA210218893C8F00638647 /* SocketRocketClient.h */,
 				E5FA210318893C8F00638647 /* SocketRocketClient.m */,
+				E59D15A318D38401006CFE49 /* SocketRocketWebSocket.h */,
+				E59D15A418D38401006CFE49 /* SocketRocketWebSocket.m */,
 			);
 			path = SocketRocket;
 			sourceTree = "<group>";
@@ -378,6 +384,7 @@
 				E5F94C031885B5E900170670 /* SocketIOClient.h in Headers */,
 				E5F94C0C1885B6C600170670 /* Primus.h in Headers */,
 				E5FA210418893C8F00638647 /* SocketRocketClient.h in Headers */,
+				E59D15A518D38401006CFE49 /* SocketRocketWebSocket.h in Headers */,
 				E5682C9618B5175200F5D583 /* ParserProtocol.h in Headers */,
 				E51005BF1886BDD900A8F1F2 /* PrimusConnectOptions.h in Headers */,
 				E5FA210918893F1A00638647 /* Transformer.h in Headers */,
@@ -433,7 +440,7 @@
 		E5F94BCD1885B5BD00170670 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Seegno;
 				TargetAttributes = {
 					E5F94BE71885B5BD00170670 = {
@@ -547,6 +554,7 @@
 				E5F94C0D1885B6C600170670 /* Primus.m in Sources */,
 				E51005C51887F38400A8F1F2 /* JSON.m in Sources */,
 				E5F94C041885B5E900170670 /* SocketIOClient.m in Sources */,
+				E59D15A618D38401006CFE49 /* SocketRocketWebSocket.m in Sources */,
 				E5FA210A18893F1A00638647 /* Transformer.m in Sources */,
 				E51005C01886BDD900A8F1F2 /* PrimusConnectOptions.m in Sources */,
 				E5FA210518893C8F00638647 /* SocketRocketClient.m in Sources */,
@@ -596,7 +604,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -634,7 +641,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -690,7 +696,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7277FA3FA18740E789A9F58C /* Pods.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Primus.dylib";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -717,7 +722,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7277FA3FA18740E789A9F58C /* Pods.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Primus.dylib";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
