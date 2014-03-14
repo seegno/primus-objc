@@ -27,9 +27,10 @@
 {
     [_primus on:@"outgoing::open" listener:^{
         @try {
-            _socket = [[SRWebSocket alloc] initWithURLRequest:_primus.request];
+            _socket = [[SocketRocketWebSocket alloc] initWithURLRequest:_primus.request];
 
             _socket.delegate = self;
+            _socket.stayConnectedInBackground = _primus.options.stayConnectedInBackground;
 
             [_socket open];
         }
@@ -91,6 +92,12 @@
     }
 
     [_primus emit:@"incoming::error", error];
+}
+
+- (void)setStayConnectedInBackground:(BOOL)stayConnectedInBackground
+{
+    _primus.options.stayConnectedInBackground = stayConnectedInBackground;
+    _socket.stayConnectedInBackground = stayConnectedInBackground;
 }
 
 @end

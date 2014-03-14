@@ -26,6 +26,7 @@ typedef BOOL (^PrimusTransformCallback)(NSMutableDictionary *data);
 @protocol PrimusProtocol <NSObject>
 
 @property (nonatomic) NSURLRequest *request;
+@property (nonatomic, readonly) PrimusConnectOptions *options;
 
 /**
  *  The init method is disabled. Please call one of the other initializers.
@@ -82,7 +83,7 @@ typedef BOOL (^PrimusTransformCallback)(NSMutableDictionary *data);
  *
  *  @param data An instance of NSDictionary, NSData, NSString, etc.
  *
- *  @return True if the data was written successfully, false otherwise.
+ *  @return YES if the data was written successfully, NO otherwise.
  */
 - (BOOL)write:(id)data;
 

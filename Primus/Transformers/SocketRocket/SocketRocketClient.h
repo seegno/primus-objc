@@ -8,13 +8,13 @@
 
 #if __has_include(<SocketRocket/SRWebSocket.h>)
 
-#import <SocketRocket/SRWebSocket.h>
+#import "SocketRocketWebSocket.h"
 
 #import "Transformer.h"
 
 @interface SocketRocketClient : Transformer<SRWebSocketDelegate>
 {
-    SRWebSocket *_socket;
+    SocketRocketWebSocket *_socket;
 }
 
 @end

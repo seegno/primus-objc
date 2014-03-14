@@ -17,6 +17,7 @@
 @property (nonatomic) NSTimeInterval pong;               // Heartbeat pong response timeout.
 @property (nonatomic) BOOL autodetect;                   // Autodetect transformer and parser
 @property (nonatomic) BOOL manual;                       // Manual connection
+@property (nonatomic) BOOL stayConnectedInBackground;    // Stay connected while app is in background
 @property (nonatomic) NSDictionary *plugins;             // Plugins to load
 @property (nonatomic) Class transformerClass;            // Transformer
 @property (nonatomic) Class parserClass;                 // Parser

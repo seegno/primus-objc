@@ -37,12 +37,19 @@
         _pong = 10;
         _autodetect = YES;
         _manual = NO;
+        _stayConnectedInBackground = [[NSBundle.mainBundle objectForInfoDictionaryKey:@"UIBackgroundModes"] containsObject:@"voip"];
         _plugins = nil;
         _transformerClass = transformerClass;
         _parserClass = nil;
 
+        // Initialize reconnect strategies
         if (strategy) {
             _reconnect.strategies = [[NSMutableSet alloc] initWithArray:strategy];
+        }
+
+        // Set the ping time to 10 minutes and 25 seconds
+        if (_stayConnectedInBackground) {
+            _ping = 625;
         }
     }
 

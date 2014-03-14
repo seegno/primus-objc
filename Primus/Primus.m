@@ -6,6 +6,10 @@
 //  Copyright (c) 2014 Seegno. All rights reserved.
 //
 
+#if __has_include(<UIKit/UIKit.h>)
+#import <UIKit/UIKit.h>
+#endif
+
 #import <libextobjc/EXTScope.h>
 #import <objc/runtime.h>
 
@@ -14,6 +18,7 @@
 @implementation Primus
 
 @synthesize request = _request;
+@synthesize options = _options;
 
 - (id)init
 {
@@ -60,6 +65,7 @@
 
         [self bindRealtimeEvents];
         [self bindNetworkEvents];
+        [self bindSystemEvents];
         [self initialize];
 
         if (!options.manual) {
@@ -217,6 +223,29 @@
     };
 
     [_reach startNotifier];
+}
+
+/**
+ * Listen for app state change events
+ */
+- (void)bindSystemEvents
+{
+#if __has_include(<UIKit/UIKit.h>)
+    [NSNotificationCenter.defaultCenter addObserverForName:UIApplicationDidEnterBackgroundNotification object:nil queue:NSOperationQueue.mainQueue usingBlock:^(NSNotification *note) {
+        if (NO == self.options.stayConnectedInBackground) {
+            return;
+        }
+
+        // Send a keep-alive ping every 10 minutes while in background
+        [UIApplication.sharedApplication setKeepAliveTimeout:600 handler:^{
+            [_timers.ping fire];
+        }];
+    }];
+
+    [NSNotificationCenter.defaultCenter addObserverForName:UIApplicationDidBecomeActiveNotification object:nil queue:NSOperationQueue.mainQueue usingBlock:^(NSNotification *note) {
+        [UIApplication.sharedApplication clearKeepAliveTimeout];
+    }];
+#endif
 }
 
 /**
@@ -389,7 +418,7 @@
         return;
     }
 
-    id pong = ^{
+    __block id pong = ^{
         [_timers.pong invalidate];
         _timers.pong = nil;
 
@@ -403,7 +432,7 @@
         [self emit:@"incoming::end", nil];
     };
 
-    id ping = ^{
+    __block id ping = ^{
         [_timers.ping invalidate];
         _timers.ping = nil;
 
