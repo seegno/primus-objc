@@ -1,8 +1,8 @@
 PODS:
   - BlocksKit/DynamicDelegate (2.2.0):
     - BlocksKit/MiniFFI
-  - Emitter (0.0.5):
-    - BlocksKit/DynamicDelegate (= 2.2.0)
+  - Emitter (0.0.6):
+    - BlocksKit/DynamicDelegate
     - SLObjectiveCRuntimeAdditions
   - Expecta (0.3.0)
   - libextobjc/EXTScope (0.4):
@@ -31,8 +31,8 @@ DEPENDENCIES:
   - Specta
 
 SPEC CHECKSUMS:
-  Emitter: 3a879b431df550a28ce78afd7f8029f1cdc04668
   BlocksKit: 1b106f407a11997fd79e1da31453758e51277613
+  Emitter: 1bd8c4532f0128f6f838f8b4f1233b2f3cafc22b
   Expecta: 322f1dc42610106a5ba9871b4924cf1635d80833
   libextobjc: 2c9fc8226f0f38e562587f65172f93f0c9b4a47a
   NSTimer-Blocks: 99f52d61c29429d7e8ef0c82e596f317addb9421
