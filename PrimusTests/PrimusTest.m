@@ -13,7 +13,7 @@ SpecBegin(Primus)
 describe(@"Primus", ^{
     __block Primus *primus;
 
-    setAsyncSpecTimeout(5.0);
+    setAsyncSpecTimeout(2.0);
 
     beforeEach(^{
         NSURL *url = [NSURL URLWithString:@"http://127.0.0.1"];
