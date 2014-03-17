@@ -87,11 +87,11 @@
 
 - (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error
 {
-    if (_socket.readyState == SR_CLOSED) {
-        return [_primus emit:@"incoming::end", error.localizedDescription];
-    }
-
     [_primus emit:@"incoming::error", error];
+
+    if (_socket.readyState == SR_CLOSED) {
+        [_primus emit:@"incoming::end", error.localizedDescription];
+    }
 }
 
 - (void)setStayConnectedInBackground:(BOOL)stayConnectedInBackground
