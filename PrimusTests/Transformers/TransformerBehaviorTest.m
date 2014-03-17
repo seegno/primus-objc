@@ -90,12 +90,15 @@ sharedExamplesFor(@"a transformer", ^(NSDictionary *data) {
             done();
         }];
 
+        [primus on:@"incoming::open" listener:^{
+            [primus end];
+        }];
+
         [primus on:@"error" listener:^(NSError *error) {
             XCTFail(@"received error %@", error);
         }];
 
         [primus open];
-        [primus end];
     });
 
     it(@"emits `incoming::end` with `server-close` intention", ^AsyncBlock {
