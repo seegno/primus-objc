@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.source_files          = "Primus/*.{h,m}", "Primus/**/*.{h,m}"
   s.requires_arc          = true
   s.ios.deployment_target = '6.0'
-  s.osx.deployment_target = '10.7'
+  s.osx.deployment_target = '10.8'
 
   s.dependency 'libextobjc/EXTScope'
   s.dependency 'NSTimer-Blocks'
