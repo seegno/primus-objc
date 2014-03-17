@@ -115,7 +115,7 @@ Further customization can also be achieved by passing an instance of a PrimusCon
 
 When you initialize a Primus instance with the default options, it will automatically connect. This is done for compatibility with the original Primus library.
 
-However, if you'd prefer to connect manually, you must pass a custom PrimusConnectOptions to the initializer and call the `open` method:
+However, if you'd prefer to connect manually, you must pass a custom [*PrimusConnectOptions*](https://github.com/seegno/primus-objc/blob/master/Primus/Core/PrimusConnectOptions.h) to the initializer and call the `open` method:
 
 ```objective-c
     NSURL *url = [NSURL URLWithString:@"http://localhost:9090/primus"];
@@ -187,6 +187,21 @@ Event                 | Usage      | Location | Description
 ## Heartbeats and latency
 
 The Primus heartbeat mechanism has been implemented as described in the [original framework](https://github.com/primus/primus#heartbeats-and-latency).
+
+## Background support
+
+In the case of iOS, Primus supports staying connected in the background. This option is available in the [*PrimusConnectOptions*](https://github.com/seegno/primus-objc/blob/master/Primus/Core/PrimusConnectOptions.h) object. It is automatically set to `true` if your application is configured with the VOIP UIBackgroundMode, as described in Apple's [documentation](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/AdvancedAppTricks/AdvancedAppTricks.html#//apple_ref/doc/uid/TP40007072-CH7-SW12).
+
+In order to keep the connection alive, we need to send a `primus::ping::<timestamp>` message which means we need some CPU time every now and again. The minimum amount of time that [Apple allows](https://developer.apple.com/library/ios/DOCUMENTATION/UIKit/Reference/UIApplication_Class/Reference/Reference.html#//apple_ref/occ/instm/UIApplication/setKeepAliveTimeout:handler:) for background tasks is **10 minutes**, which means that you **must** configure your server-side Primus with a timeout of at least 10 minutes. 
+
+Here's an example of how to configure your server, in javascript:
+
+```javascript
+var primus = new Primus(server, {
+    transformer: 'websockets',
+    timeout: 630000      // 10 minutes and 30 secs
+});
+```
 
 ## Plugins
 
