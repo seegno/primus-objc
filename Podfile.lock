@@ -14,7 +14,7 @@ PODS:
     - OCHamcrest (~> 3.0)
   - Reachability (3.1.1)
   - SLObjectiveCRuntimeAdditions (1.1.2)
-  - socket.IO (0.5):
+  - socket.IO (0.5.1):
     - SocketRocket (~> 0.2)
   - SocketRocket (0.3.1-beta2)
   - Specta (0.2.1)
@@ -40,7 +40,7 @@ SPEC CHECKSUMS:
   OCMockito: 317fa0cf75c9b0d73d2be335789c556537be7fd2
   Reachability: be4883bb93f31e38266ae3365e5600a317aae735
   SLObjectiveCRuntimeAdditions: 3fa6a14b9d09ed386180b19de1267bb1cd8a9aad
-  socket.IO: 627782f3c7713a27dcf55679b5d4839f50428fe6
+  socket.IO: cbcdf2447ea4f58f97f35d4a1feeddc84423d595
   SocketRocket: 7ac946bcce46287a791dfff3c1f8daa692821dae
   Specta: 2d06220591110c6d9757d8be8ecf8e63aa40dc2a
 
