@@ -192,7 +192,7 @@ The Primus heartbeat mechanism has been implemented as described in the [origina
 
 In the case of iOS, Primus supports staying connected in the background. This option is available in the [*PrimusConnectOptions*](https://github.com/seegno/primus-objc/blob/master/Primus/Core/PrimusConnectOptions.h) object. It is automatically set to `true` if your application is configured with the VOIP UIBackgroundMode, as described in Apple's [documentation](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/AdvancedAppTricks/AdvancedAppTricks.html#//apple_ref/doc/uid/TP40007072-CH7-SW12).
 
-In order to keep the connection alive, we need to send a `primus::ping::<timestamp>` message which means we need some CPU time every now and again. The minimum amount of time that [Apple allows](https://developer.apple.com/library/ios/DOCUMENTATION/UIKit/Reference/UIApplication_Class/Reference/Reference.html#//apple_ref/occ/instm/UIApplication/setKeepAliveTimeout:handler:) for background tasks is **10 minutes**, which means that you **must** configure your server-side Primus with a timeout of at least 10 minutes. 
+In order to keep the connection alive, we need to send a `primus::ping::<timestamp>` message which means we need some CPU time every now and again. The maximum interval that [Apple allows](https://developer.apple.com/library/ios/DOCUMENTATION/UIKit/Reference/UIApplication_Class/Reference/Reference.html#//apple_ref/occ/instm/UIApplication/setKeepAliveTimeout:handler:) for background tasks is **10 minutes**, which means that you **must** configure your server-side Primus with a timeout of at least 10 minutes. 
 
 Here's an example of how to configure your server, in javascript:
 
