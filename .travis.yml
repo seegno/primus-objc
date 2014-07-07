@@ -6,7 +6,6 @@ before_install:
 before_script:
   - brew update
   - brew upgrade xctool
-  - brew install npm
   - npm install
 notifications:
   slack: seegno:AoXFWrkPDMfOuaxvckPs7hc0
