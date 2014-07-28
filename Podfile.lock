@@ -1,23 +1,22 @@
 PODS:
-  - BlocksKit/DynamicDelegate (2.2.0):
-    - BlocksKit/MiniFFI
-  - Emitter (0.0.6):
+  - BlocksKit/DynamicDelegate (2.2.3)
+  - Emitter (0.0.7):
     - BlocksKit/DynamicDelegate
-    - SLObjectiveCRuntimeAdditions
-  - Expecta (0.3.0)
+  - Expecta (0.3.1)
   - libextobjc/EXTScope (0.4):
     - libextobjc/RuntimeExtensions
   - libextobjc/RuntimeExtensions (0.4)
   - NSTimer-Blocks (0.0.1)
-  - OCHamcrest (3.0.1)
-  - OCMockito (1.1.0):
-    - OCHamcrest (~> 3.0)
+  - OCHamcrest (4.0.1)
+  - OCMockito (1.3.0):
+    - OCHamcrest (~> 4.0)
+    - TPWeakProxy (~> 1.0)
   - Reachability (3.1.1)
-  - SLObjectiveCRuntimeAdditions (1.1.2)
-  - socket.IO (0.5.1):
+  - socket.IO (0.5.2):
     - SocketRocket (~> 0.2)
   - SocketRocket (0.3.1-beta2)
   - Specta (0.2.1)
+  - TPWeakProxy (1.0.0)
 
 DEPENDENCIES:
   - Emitter
@@ -31,17 +30,17 @@ DEPENDENCIES:
   - Specta
 
 SPEC CHECKSUMS:
-  BlocksKit: 1b106f407a11997fd79e1da31453758e51277613
-  Emitter: 1bd8c4532f0128f6f838f8b4f1233b2f3cafc22b
-  Expecta: 322f1dc42610106a5ba9871b4924cf1635d80833
-  libextobjc: 2c9fc8226f0f38e562587f65172f93f0c9b4a47a
-  NSTimer-Blocks: 99f52d61c29429d7e8ef0c82e596f317addb9421
-  OCHamcrest: 782c52ae8c673e5d6060a65005cfd26d20d519ba
-  OCMockito: 317fa0cf75c9b0d73d2be335789c556537be7fd2
-  Reachability: be4883bb93f31e38266ae3365e5600a317aae735
-  SLObjectiveCRuntimeAdditions: 3fa6a14b9d09ed386180b19de1267bb1cd8a9aad
-  socket.IO: cbcdf2447ea4f58f97f35d4a1feeddc84423d595
-  SocketRocket: 7ac946bcce46287a791dfff3c1f8daa692821dae
-  Specta: 2d06220591110c6d9757d8be8ecf8e63aa40dc2a
+  BlocksKit: 07c8a80f04275efac6a5f8b973782489c083a182
+  Emitter: be2820bd9ef5a3644da3cb34d9ec19e44c1213e6
+  Expecta: 03aabd0a89d8dea843baecb19a7fd7466a69a31d
+  libextobjc: ba42e4111f433273a886cd54f0ddaddb7f62f82f
+  NSTimer-Blocks: 0a653b84ab33068a085f5c03c82c18be1f61eba9
+  OCHamcrest: b464725bbb48d0f1cd9c6f4ec3cb35fe0c4f2b94
+  OCMockito: eca2670b3ce4a457d316b046a36d6f2b980a4da7
+  Reachability: 8e9635e3cb4f98e7f825e51147f677ecc694d0e7
+  socket.IO: db3e71805c862038ab73209dda2b0ad6babc54b2
+  SocketRocket: 79a68ae186063c65e1fe6f638b1ae2927aa5f304
+  Specta: 9141310f46b1f68b676650ff2854e1ed0b74163a
+  TPWeakProxy: a23251ba7fbe268c93f809cc072ef834f5063798
 
-COCOAPODS: 0.29.0
+COCOAPODS: 0.33.1

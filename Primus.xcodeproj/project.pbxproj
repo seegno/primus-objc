@@ -80,7 +80,7 @@
 		E587956F1886A94300913F61 /* PrimusTimers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrimusTimers.m; sourceTree = "<group>"; };
 		E58795701886A94300913F61 /* PrimusTransformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrimusTransformers.h; sourceTree = "<group>"; };
 		E58795711886A94300913F61 /* PrimusTransformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrimusTransformers.m; sourceTree = "<group>"; };
-		E591EB1618A9195D00138959 /* Primus.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Primus.podspec; sourceTree = "<group>"; };
+		E58C3F7B19869EDE00461CE7 /* Primus.podspec.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Primus.podspec.json; sourceTree = "<group>"; };
 		E59D15A318D38401006CFE49 /* SocketRocketWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketRocketWebSocket.h; sourceTree = "<group>"; };
 		E59D15A418D38401006CFE49 /* SocketRocketWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketRocketWebSocket.m; sourceTree = "<group>"; };
 		E5DEB03318AB90A500EAC444 /* SocketRocketClientTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketRocketClientTest.m; sourceTree = "<group>"; };
@@ -239,7 +239,7 @@
 				E5F94BD71885B5BD00170670 /* Frameworks */,
 				E5F94BD61885B5BD00170670 /* Products */,
 				E5DEB04618ACF82F00EAC444 /* node_modules */,
-				E591EB1618A9195D00138959 /* Primus.podspec */,
+				E58C3F7B19869EDE00461CE7 /* Primus.podspec.json */,
 				E5DEB04218ACE5F200EAC444 /* package.json */,
 				7277FA3FA18740E789A9F58C /* Pods.xcconfig */,
 				74A248551C9F4EEF8E00F4EE /* Pods-PrimusTests.xcconfig */,
