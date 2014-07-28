@@ -62,6 +62,7 @@ sharedExamplesFor(@"a transformer", ^(NSDictionary *data) {
     afterEach(^{
         expect(primus).toNot.beNil();
 
+        [primus removeAllListeners];
         [primus end];
         primus = nil;
     });
