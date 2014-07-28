@@ -4,8 +4,6 @@ xcode_scheme: Primus
 before_install:
   - gem install cocoapods
 before_script:
-  - brew update
-  - brew upgrade xctool
   - npm install
 notifications:
   slack: seegno:AoXFWrkPDMfOuaxvckPs7hc0
