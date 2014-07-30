@@ -34,21 +34,35 @@ sharedExamplesFor(@"a transformer", ^(NSDictionary *data) {
         // Launch the node server process
         server = [[NSTask alloc] init];
         server.launchPath = [[NSProcessInfo processInfo] environment][@"SHELL"];
-        server.arguments = @[@"-i", @"-c", [@"node " stringByAppendingString:path]];
+        server.arguments = @[@"-c", [NSString stringWithFormat:@"node %@", path]];
+        server.standardError = [NSPipe pipe];
         server.standardOutput = [NSPipe pipe];
+
+        server.terminationHandler = ^(NSTask *server) {
+            [server.standardError fileHandleForReading].readabilityHandler = nil;
+            [server.standardOutput fileHandleForReading].readabilityHandler = nil;
+        };
+
+        // Output stderr to the console for debugging
+        [server.standardError fileHandleForReading].readabilityHandler = ^(NSFileHandle *handle) {
+            NSLog(@"Error: %@", [[NSString alloc] initWithData:handle.availableData encoding:NSUTF8StringEncoding]);
+        };
+
+        // Read 1 byte of data (this is important so that we block until the server has started)
+        [server.standardOutput fileHandleForReading].readabilityHandler = ^(NSFileHandle *handle) {
+            done();
+        };
 
         [server launch];
 
         // Save the pid of the running process
         [[NSUserDefaults standardUserDefaults] setObject:@(server.processIdentifier) forKey:@"last_pid"];
         [[NSUserDefaults standardUserDefaults] synchronize];
+    });
 
-        // Read 1 byte of data (this is important so that we block until the server has started)
-        [[server.standardOutput fileHandleForReading] setReadabilityHandler:^(NSFileHandle *handle) {
-            done();
-
-            NSLog(@"%@", [[NSString alloc] initWithData:handle.availableData encoding:NSUTF8StringEncoding]);
-        }];
+    afterEach(^{
+        [server terminate];
+        server = nil;
     });
 
     beforeEach(^{
@@ -59,19 +73,19 @@ sharedExamplesFor(@"a transformer", ^(NSDictionary *data) {
         primus = [[Primus alloc] initWithURL:[NSURL URLWithString:@"ws://127.0.0.1:9999"] options:options];
     });
 
-    afterEach(^{
-        expect(primus).toNot.beNil();
+    afterEach(^AsyncBlock {
+        [primus on:@"close" listener:^{
+            [primus removeAllListeners];
+            primus = nil;
 
-        [primus removeAllListeners];
+            done();
+        }];
+
+        if (kPrimusReadyStateClosed == primus.readyState) {
+            [primus emit:@"close"];
+        }
+
         [primus end];
-        primus = nil;
-    });
-
-    afterEach(^{
-        expect(server).toNot.beNil();
-
-        [server terminate];
-        server = nil;
     });
 
     it(@"emits `incoming::open` event", ^AsyncBlock {

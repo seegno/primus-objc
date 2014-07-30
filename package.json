@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "dependencies": {},
   "devDependencies": {
+    "debug": "^1.0.4",
     "socket.io": "~0.9.16",
     "ws": "~0.4.31"
   },
