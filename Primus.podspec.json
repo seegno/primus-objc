@@ -3,7 +3,9 @@
   "version": "0.0.4",
   "summary": "Easily switch between different real-time Objective-C frameworks without any code changes.",
   "homepage": "https://github.com/seegno/primus-objc",
-  "authors": "Seegno",
+  "authors": {
+    "Nuno Sousa": "nfs@seegno.com"
+  },
   "license": {
     "type": "MIT",
     "file": "LICENSE"
