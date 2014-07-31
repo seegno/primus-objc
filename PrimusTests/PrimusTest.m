@@ -272,7 +272,7 @@ describe(@"Primus", ^{
         [primus emit:@"incoming::open"];
 
         [primus on:@"outgoing::data" listener:^(NSString *data) {
-            expect(data).to.equal([@"\"foo\"" dataUsingEncoding:NSUTF8StringEncoding]);
+            expect(data).to.equal(@"\"foo\"");
         }];
 
         [primus write:@{ @"example": @"parameter" }];

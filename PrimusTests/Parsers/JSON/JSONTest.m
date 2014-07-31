@@ -31,7 +31,7 @@ describe(@"JSON", ^{
     it(@"encodes string data", ^AsyncBlock {
         [serializer encode:@"string-data" callback:^(NSError *error, id data) {
             expect(error).to.beNil();
-            expect(data).to.equal([@"\"string-data\"" dataUsingEncoding:NSUTF8StringEncoding]);
+            expect(data).to.equal(@"\"string-data\"");
 
             done();
         }];

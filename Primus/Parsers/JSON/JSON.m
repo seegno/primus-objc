@@ -16,7 +16,7 @@
 
     @try {
         if ([raw isKindOfClass:[NSString class]]) {
-            raw = [[NSString stringWithFormat:@"\"%@\"", raw] dataUsingEncoding:NSUTF8StringEncoding];
+            raw = [NSString stringWithFormat:@"\"%@\"", raw];
         } else {
             raw = [NSJSONSerialization dataWithJSONObject:raw options:0 error:&error];
         }
