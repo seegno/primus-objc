@@ -256,14 +256,25 @@
     Class transformerClass = self.options.transformerClass;
     Class parserClass = self.options.parserClass;
 
-    if (!transformerClass && self.options.autodetect) {
+    if (self.options.autodetect) {
         // If there is no transformer set, request the /spec endpoint and
         // map the server-side transformer to our client-side one.
         // Also, since we already have that information, set the parser as well.
         NSDictionary *spec = [self getJSONData:[self.request.URL URLByAppendingPathComponent:@"spec"]];
 
-        transformerClass = NSClassFromString([self.transformers mapTransformer:spec[@"transformer"]]);
-        parserClass = NSClassFromString([spec[@"parser"] uppercaseString]);
+        if (!transformerClass) {
+            transformerClass = NSClassFromString([self.transformers mapTransformer:spec[@"transformer"]]);
+        }
+
+        if (!parserClass) {
+            parserClass = NSClassFromString([spec[@"parser"] uppercaseString]);
+        }
+
+        // Subtract 10 seconds from the maximum server-side timeout, as per the
+        // official Primus server-side documentation.
+        NSTimeInterval timeout = ((NSNumber *)spec[@"timeout"]).doubleValue - 10e3;
+
+        self.options.ping = MAX(MIN(self.options.ping, timeout / 1000.0f), 0);
     }
 
     // If there is no parser set, use JSON as default
