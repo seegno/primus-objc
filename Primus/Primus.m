@@ -312,7 +312,7 @@
     NSHTTPURLResponse *responseCode = nil;
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&responseCode error:nil];
 
-    if(200 != responseCode.statusCode){
+    if (200 != responseCode.statusCode){
         [self emit:@"error", responseCode];
 
         return nil;
@@ -515,17 +515,18 @@
     options.backoff = YES;
 
     options.timeout = options.attempt != 1
-        ? MIN(round((rand() + 1) * options.minDelay * pow(options.factor, options.attempt)), options.maxDelay)
+        ? MIN(round((drand48() + 1) * options.minDelay * pow(options.factor, options.attempt)), options.maxDelay)
         : options.minDelay;
 
     [self emit:@"reconnecting", options];
 
     _timers.reconnect = [NSTimer scheduledTimerWithTimeInterval:options.timeout block:^{
-        options.backoff = NO;
-
         _timers.reconnect = nil;
 
         callback(nil, options);
+
+        options.attempt++;
+        options.backoff = NO;
     } repeats:NO];
 }
 
