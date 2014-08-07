@@ -21,8 +21,9 @@ sharedExamplesFor(@"a transformer", ^(NSDictionary *data) {
     __block Primus *primus;
 
     beforeEach(^AsyncBlock {
-        NSString *path = [[NSBundle bundleWithIdentifier:@"com.seegno.PrimusTests"] pathForResource:data[@"server"] ofType:@"js"];
         NSNumber *pid = [[NSUserDefaults standardUserDefaults] objectForKey:@"last_pid"];
+        NSString *serverPath = [[NSBundle bundleWithIdentifier:@"com.seegno.PrimusTests"] pathForResource:data[@"server"] ofType:@"js"];
+        NSString *nodePath = @"node";
 
         // Kill the previous process
         if ([[NSUserDefaults standardUserDefaults] objectForKey:@"last_pid"]) {
@@ -31,10 +32,15 @@ sharedExamplesFor(@"a transformer", ^(NSDictionary *data) {
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"last_pid"];
         }
 
+        // Check for existence of nvm-managed node
+        if ([NSFileManager.defaultManager fileExistsAtPath:[@"~/.nvm/current/bin/node" stringByExpandingTildeInPath]]) {
+            nodePath = @"~/.nvm/current/bin/node";
+        }
+
         // Launch the node server process
         server = [[NSTask alloc] init];
         server.launchPath = [[NSProcessInfo processInfo] environment][@"SHELL"];
-        server.arguments = @[@"-c", [NSString stringWithFormat:@"node %@", path]];
+        server.arguments = @[@"-c", [@[nodePath, serverPath] componentsJoinedByString:@" "]];
         server.standardError = [NSPipe pipe];
         server.standardOutput = [NSPipe pipe];
 
