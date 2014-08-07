@@ -66,7 +66,6 @@
         [self bindRealtimeEvents];
         [self bindNetworkEvents];
         [self bindSystemEvents];
-        [self initialize];
 
         if (!options.manual) {
             _timers.open = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(open) userInfo:nil repeats:NO];
@@ -294,12 +293,15 @@
     self.options.transformerClass = transformerClass;
     self.options.parserClass = parserClass;
 
-    _transformer = [[self.options.transformerClass alloc] initWithPrimus:self];
-    _parser = [[self.options.parserClass alloc] init];
+    if (!_transformer) {
+        _transformer = [[self.options.transformerClass alloc] initWithPrimus:self];
+    }
 
-    [NSTimer scheduledTimerWithTimeInterval:0 block:^{
-        [self emit:@"initialised", self.transformer, self.parser];
-    } repeats:NO];
+    if (!_parser) {
+        _parser = [[self.options.parserClass alloc] init];
+    }
+
+    [self emit:@"initialised", self.transformer, self.parser];
 }
 
 /**
@@ -309,16 +311,14 @@
 {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
 
-    NSHTTPURLResponse *responseCode = nil;
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&responseCode error:nil];
+    NSHTTPURLResponse *response = nil;
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
 
-    if (200 != responseCode.statusCode){
-        [self emit:@"error", responseCode];
-
+    if (200 != response.statusCode){
         return nil;
     }
 
-    return [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
+    return [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
 }
 
 /**
@@ -328,6 +328,8 @@
  */
 - (void)open
 {
+    [self initialize];
+
     if (!self.transformer) {
         @throw [NSException exceptionWithName:NSInvalidArgumentException reason:@"No transformer specified." userInfo:nil];
     }

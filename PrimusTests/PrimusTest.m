@@ -22,8 +22,14 @@ describe(@"Primus", ^{
         options.manual = YES;
 
         primus = [[Primus alloc] initWithURL:url options:options];
-
         primus.transformer = mockRequiredObjectAndProtocol([NSObject class], @protocol(TransformerProtocol));
+    });
+
+    afterEach(^{
+        [primus removeAllListeners];
+        [primus end];
+
+        primus = nil;
     });
 
     it(@"initializes with defaults", ^{
@@ -46,9 +52,10 @@ describe(@"Primus", ^{
             NSURL *url = [NSURL URLWithString:@"http://127.0.0.1"];
             PrimusConnectOptions *options = [[PrimusConnectOptions alloc] init];
 
+            options.manual = YES;
             options.transformerClass = [NSObject class];
 
-            [[[Primus alloc] initWithURL:url options:options] description];
+            [[[Primus alloc] initWithURL:url options:options] open];
         }).to.raiseWithReason(@"NSInvalidArgumentException", @"Transformer does not implement TransformerProtocol.");
     });
 
@@ -59,6 +66,8 @@ describe(@"Primus", ^{
 
             done();
         }];
+
+        [primus open];
     });
 
     it(@"emits an `open` event", ^AsyncBlock {
@@ -95,6 +104,7 @@ describe(@"Primus", ^{
             done();
         }];
 
+        [primus open];
         [primus emit:@"incoming::open"];
 
         [primus write:@123];
@@ -124,6 +134,7 @@ describe(@"Primus", ^{
             }
         }];
 
+        [primus open];
         [primus emit:@"incoming::open"];
     });
 
@@ -276,7 +287,7 @@ describe(@"Primus", ^{
         }];
 
         [primus write:@{ @"example": @"parameter" }];
-        
+
         done();
     });
 
