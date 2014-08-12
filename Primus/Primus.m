@@ -87,13 +87,15 @@
     [self on:@"incoming::open" listener:^{
         _readyState = kPrimusReadyStateOpen;
 
-        [self emit:@"open"];
+        _attemptOptions = nil;
 
         [_timers.ping invalidate];
         _timers.ping = nil;
 
         [_timers.pong invalidate];
         _timers.pong = nil;
+
+        [self emit:@"open"];
 
         [self heartbeat];
 

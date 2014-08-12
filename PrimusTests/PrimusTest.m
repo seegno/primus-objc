@@ -207,18 +207,17 @@ describe(@"Primus", ^{
     });
 
     it(@"should reset the reconnect details after a successful reconnect", ^AsyncBlock {
-        [primus on:@"reconnect" listener:^(PrimusReconnectOptions *attempt) {
-            expect(primus.attemptOptions).toNot.beNil();
-            expect(primus.attemptOptions.attempt).to.beGreaterThan(0);
-            expect(primus.attemptOptions.minDelay).to.equal(0.5);
-            expect(primus.attemptOptions.maxDelay).to.equal(NSIntegerMax);
-            expect(primus.attemptOptions.timeout).to.beLessThan(2);
-            expect(primus.attemptOptions.timeout).to.beGreaterThan(0.099);
+        [primus performSelector:@selector(reconnect)];
+
+        primus.attemptOptions.attempt = 5;
+
+        [primus on:@"open" listener:^{
+            expect(primus.attemptOptions).to.beNil();
 
             done();
         }];
 
-        [primus performSelector:@selector(reconnect)];
+        [primus emit:@"incoming::open"];
     });
 
     it(@"should change readyStates", ^AsyncBlock {
