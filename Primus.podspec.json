@@ -27,7 +27,7 @@
     "libextobjc/EXTScope": [
 
     ],
-    "NSTimer-Blocks": [
+    "GCDTimer": [
 
     ],
     "Reachability": [

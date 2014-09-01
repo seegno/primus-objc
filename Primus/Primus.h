@@ -7,7 +7,7 @@
 //
 
 #import <Reachability/Reachability.h>
-#import <NSTimer-Blocks/NSTimer+Blocks.h>
+#import <GCDTimer/GCDTimer.h>
 
 #import "TransformerProtocol.h"
 #import "ParserProtocol.h"

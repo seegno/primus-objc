@@ -6,13 +6,15 @@
 //  Copyright (c) 2014 Seegno. All rights reserved.
 //
 
+#import <GCDTimer/GCDTimer.h>
+
 @interface PrimusTimers : NSObject
 
-@property (nonatomic) NSTimer *open;
-@property (nonatomic) NSTimer *ping;
-@property (nonatomic) NSTimer *pong;
-@property (nonatomic) NSTimer *connect;
-@property (nonatomic) NSTimer *reconnect;
+@property (nonatomic) GCDTimer *open;
+@property (nonatomic) GCDTimer *ping;
+@property (nonatomic) GCDTimer *pong;
+@property (nonatomic) GCDTimer *connect;
+@property (nonatomic) GCDTimer *reconnect;
 
 /**
  *  Invalidate all timers.

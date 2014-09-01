@@ -68,7 +68,9 @@
         [self bindSystemEvents];
 
         if (!options.manual) {
-            _timers.open = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(open) userInfo:nil repeats:NO];
+            _timers.open = [GCDTimer scheduledTimerWithTimeInterval:0.1 repeats:NO block:^{
+                [self open];
+            }];
         }
     }
 
@@ -239,7 +241,7 @@
 
         // Send a keep-alive ping every 10 minutes while in background
         [UIApplication.sharedApplication setKeepAliveTimeout:600 handler:^{
-            [_timers.ping fire];
+            [self ping];
         }];
     }];
 
@@ -422,6 +424,34 @@
     [self once:@"incoming::id" listener:fn];
 }
 
+- (void)pong
+{
+    [_timers.pong invalidate];
+    _timers.pong = nil;
+
+    if (self.online) {
+        return;
+    }
+
+    _online = NO;
+
+    [self emit:@"offline"];
+    [self emit:@"incoming::end", nil];
+}
+
+- (void)ping
+{
+    [_timers.ping invalidate];
+    _timers.ping = nil;
+
+    [self write:[NSString stringWithFormat:@"primus::ping::%f", [[NSDate date] timeIntervalSince1970]]];
+    [self emit:@"outgoing::ping"];
+
+    _timers.pong = [GCDTimer scheduledTimerWithTimeInterval:self.options.pong repeats:NO block:^{
+        [self pong];
+    }];
+}
+
 /**
  * Send a new heartbeat over the connection to ensure that we're still
  * connected and our internet connection didn't drop. We cannot use server side
@@ -433,31 +463,9 @@
         return;
     }
 
-    __block id pong = ^{
-        [_timers.pong invalidate];
-        _timers.pong = nil;
-
-        if (self.online) {
-            return;
-        }
-
-        _online = NO;
-
-        [self emit:@"offline"];
-        [self emit:@"incoming::end", nil];
-    };
-
-    __block id ping = ^{
-        [_timers.ping invalidate];
-        _timers.ping = nil;
-
-        [self write:[NSString stringWithFormat:@"primus::ping::%f", [[NSDate date] timeIntervalSince1970]]];
-        [self emit:@"outgoing::ping"];
-
-        _timers.pong = [NSTimer scheduledTimerWithTimeInterval:self.options.pong block:pong repeats:NO];
-    };
-
-    _timers.ping = [NSTimer scheduledTimerWithTimeInterval:self.options.ping block:ping repeats:NO];
+    _timers.ping = [GCDTimer scheduledTimerWithTimeInterval:self.options.ping repeats:NO block:^{
+        [self ping];
+    }];
 }
 
 /**
@@ -474,7 +482,7 @@
         _timers.connect = nil;
     });
 
-    _timers.connect = [NSTimer scheduledTimerWithTimeInterval:self.options.timeout block:^{
+    _timers.connect = [GCDTimer scheduledTimerWithTimeInterval:self.options.timeout repeats:NO block:^{
         remove();
 
         if (kPrimusReadyStateOpen == self.readyState || _attemptOptions.attempt) {
@@ -488,7 +496,7 @@
         } else {
             [self end];
         }
-    } repeats:NO];
+    }];
 
     [self on:@"error" listener:remove];
     [self on:@"open" listener:remove];
@@ -524,14 +532,14 @@
 
     [self emit:@"reconnecting", options];
 
-    _timers.reconnect = [NSTimer scheduledTimerWithTimeInterval:options.timeout block:^{
+    _timers.reconnect = [GCDTimer scheduledTimerWithTimeInterval:options.timeout repeats:NO block:^{
         _timers.reconnect = nil;
 
         callback(nil, options);
 
         options.attempt++;
         options.backoff = NO;
-    } repeats:NO];
+    }];
 }
 
 /**
