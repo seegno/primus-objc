@@ -20,7 +20,6 @@
 
 @interface Primus : NSObject<PrimusProtocol>
 {
-    NSUInteger _timeout;
     NSMutableArray *_buffer;
     PrimusTimers *_timers;
     Reachability *_reach;
