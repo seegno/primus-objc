@@ -11,8 +11,6 @@
 #import "PrimusConnectOptions.h"
 #import "PrimusReconnectOptions.h"
 
-#define recursiveBlock(outerBlock, innerBlock) void (^outerBlock)(); __block void (^block)() = outerBlock; innerBlock(block);
-
 typedef void (^PrimusIdCallback)(NSString *socketId);
 
 typedef NS_ENUM(int16_t, PrimusReadyState) {

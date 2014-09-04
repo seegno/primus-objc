@@ -84,6 +84,8 @@
 {
     [self on:@"outgoing::open" listener:^{
         _readyState = kPrimusReadyStateOpening;
+
+        [self startTimeout];
     }];
 
     [self on:@"incoming::open" listener:^{
@@ -99,7 +101,7 @@
 
         [self emit:@"open"];
 
-        [self heartbeat];
+        [self sendHeartbeat];
 
         if (_buffer.count > 0) {
             for (id data in _buffer) {
@@ -116,13 +118,13 @@
         [_timers.pong invalidate];
         _timers.pong = nil;
 
-        [self heartbeat];
+        [self sendHeartbeat];
     }];
 
     [self on:@"incoming::error" listener:^(NSError *error) {
         [self emit:@"error", error];
 
-        if (_attemptOptions.attempt) {
+        if (_attemptOptions.attempt > 1) {
             return [self reconnect];
         }
 
@@ -174,13 +176,11 @@
     }];
 
     [self on:@"incoming::end" listener:^(NSString *intentional) {
-        PrimusReadyState readyState = self.readyState;
-
-        _readyState = kPrimusReadyStateClosed;
-
-        if (kPrimusReadyStateOpen != readyState) {
+        if (kPrimusReadyStateOpen != self.readyState && !_attemptOptions) {
             return;
         }
+
+        _readyState = kPrimusReadyStateClosed;
 
         [_timers clearAll];
 
@@ -457,7 +457,7 @@
  * connected and our internet connection didn't drop. We cannot use server side
  * heartbeats for this unfortunately.
  */
-- (void)heartbeat
+- (void)sendHeartbeat
 {
     if (! self.options.ping) {
         return;
@@ -471,25 +471,23 @@
 /**
  * Start a connection timeout.
  */
-- (void)timeout
+- (void)startTimeout
 {
-    recursiveBlock(remove, ^(id block) {
-        [self removeListener:@"error" listener:block];
-        [self removeListener:@"open" listener:block];
-        [self removeListener:@"end" listener:block];
-
+    dispatch_block_t stop = ^{
         [_timers.connect invalidate];
         _timers.connect = nil;
-    });
+    };
 
     _timers.connect = [GCDTimer scheduledTimerWithTimeInterval:self.options.timeout repeats:NO block:^{
-        remove();
+        stop();
 
-        if (kPrimusReadyStateOpen == self.readyState || _attemptOptions.attempt) {
+        if (kPrimusReadyStateOpen == self.readyState || _attemptOptions) {
             return;
         }
 
-        [self emit:@"timeout"];
+        [self emit:@"timeout", [NSError errorWithDomain:kPrimusErrorDomain code:kPrimusErrorConnectionTimeout userInfo:@{
+            NSLocalizedDescriptionKey: @"Connection timeout"
+        }]];
 
         if ([self.options.reconnect.strategies containsObject:@(kPrimusReconnectionStrategyTimeout)]) {
             [self reconnect];
@@ -498,9 +496,9 @@
         }
     }];
 
-    [self on:@"error" listener:remove];
-    [self on:@"open" listener:remove];
-    [self on:@"end" listener:remove];
+    [self once:@"error" listener:stop];
+    [self once:@"open" listener:stop];
+    [self once:@"end" listener:stop];
 }
 
 /**
@@ -517,7 +515,9 @@
     }
 
     if (options.attempt > options.retries) {
-        NSError *error = [NSError errorWithDomain:kPrimusErrorDomain code:kPrimusErrorUnableToRetry userInfo:nil];
+        NSError *error = [NSError errorWithDomain:kPrimusErrorDomain code:kPrimusErrorUnableToRetry userInfo:@{
+            NSLocalizedDescriptionKey: @"Maximum reconnect attempts reached"
+        }];
 
         callback(error, options);
 
@@ -526,7 +526,7 @@
 
     options.backoff = YES;
 
-    options.timeout = options.attempt != 1
+    options.timeout = options.attempt != 0
         ? MIN(round((drand48() + 1) * options.minDelay * pow(options.factor, options.attempt)), options.maxDelay)
         : options.minDelay;
 

@@ -9,5 +9,6 @@
 #define kPrimusErrorDomain @"com.seegno.primus"
 
 typedef NS_ENUM(NSInteger, PrimusError) {
-    kPrimusErrorUnableToRetry = 1000
+    kPrimusErrorUnableToRetry = 1000,
+    kPrimusErrorConnectionTimeout = 1001
 };
