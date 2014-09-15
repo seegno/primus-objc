@@ -17,58 +17,75 @@
     self = [super initWithPrimus:primus];
 
     if (self) {
-        [self bindEvents];
+        [_primus on:@"outgoing::open" selector:@selector(onOutgoingOpen) target:self];
+        [_primus on:@"outgoing::data" selector:@selector(onOutgoingData:) target:self];
+        [_primus on:@"outgoing::reconnect" selector:@selector(onOutgoingReconnect) target:self];
+        [_primus on:@"outgoing::end" selector:@selector(onOutgoingEnd) target:self];
     }
 
     return self;
 }
 
-- (void)bindEvents
+- (void)dealloc
 {
-    [_primus on:@"outgoing::open" listener:^{
-        @try {
-            _socket = [[SocketRocketWebSocket alloc] initWithURLRequest:_primus.request];
-
-            _socket.delegate = self;
-            _socket.stayConnectedInBackground = _primus.options.stayConnectedInBackground;
-
-            [_socket open];
-        }
-        @catch (NSException *exception) {
-            [_primus emit:@"incoming::error", exception];
-        }
-    }];
-
-    [_primus on:@"outgoing::data" listener:^(id data) {
-        if (!_socket || SR_OPEN != _socket.readyState) {
-            return;
-        }
-
-        @try {
-            [_socket send:data];
-        }
-        @catch (NSException *exception) {
-            [_primus emit:@"incoming::error", exception];
-        }
-    }];
-
-    [_primus on:@"outgoing::reconnect" listener:^{
-        if (_socket) {
-            [_primus emit:@"outgoing::end"];
-        }
-
-        [_primus emit:@"outgoing::open"];
-    }];
-
-    [_primus on:@"outgoing::end" listener:^{
-        if (! _socket) {
-            return;
-        }
-
-        [_socket close];
-        _socket = nil;
-    }];
+    [_primus removeListener:@"outgoing::open" selector:@selector(onOutgoingOpen) target:self];
+    [_primus removeListener:@"outgoing::data" selector:@selector(onOutgoingData:) target:self];
+    [_primus removeListener:@"outgoing::reconnect" selector:@selector(onOutgoingReconnect) target:self];
+    [_primus removeListener:@"outgoing::end" selector:@selector(onOutgoingEnd) target:self];
 }
+
+#pragma mark - Event listeners
+
+- (void)onOutgoingOpen
+{
+    @try {
+        _socket = [[SocketRocketWebSocket alloc] initWithURLRequest:_primus.request];
+
+        _socket.delegate = self;
+        _socket.stayConnectedInBackground = _primus.options.stayConnectedInBackground;
+
+        [_socket open];
+    }
+    @catch (NSException *exception) {
+        [_primus emit:@"incoming::error", exception];
+    }
+}
+
+- (void)onOutgoingData:(id)data
+{
+    if (!_socket || SR_OPEN != _socket.readyState) {
+        return;
+    }
+
+    @try {
+        [_socket send:data];
+    }
+    @catch (NSException *exception) {
+        [_primus emit:@"incoming::error", exception];
+    }
+}
+
+- (void)onOutgoingReconnect
+{
+    if (_socket) {
+        [_primus emit:@"outgoing::end"];
+    }
+
+    [_primus emit:@"outgoing::open"];
+
+}
+
+- (void)onOutgoingEnd
+{
+    if (! _socket) {
+        return;
+    }
+
+    [_socket close];
+    _socket = nil;
+}
+
+#pragma mark - SRWebSocketDelegate
 
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket
 {

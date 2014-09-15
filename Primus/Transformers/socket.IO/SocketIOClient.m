@@ -17,68 +17,86 @@
     self = [super initWithPrimus:primus];
 
     if (self) {
-        [self bindEvents];
+        [_primus on:@"outgoing::open" selector:@selector(onOutgoingOpen) target:self];
+        [_primus on:@"outgoing::data" selector:@selector(onOutgoingData:) target:self];
+        [_primus on:@"outgoing::reconnect" selector:@selector(onOutgoingReconnect) target:self];
+        [_primus on:@"outgoing::end" selector:@selector(onOutgoingEnd) target:self];
     }
 
     return self;
 }
 
-- (void)bindEvents
+- (void)dealloc
 {
-    [_primus on:@"outgoing::open" listener:^{
-        @try {
-            _socket = [[SocketIO alloc] initWithDelegate:self];
-
-            NSURL *url = _primus.request.URL;
-            NSString *host = url.host;
-            NSInteger port = [url.port integerValue] ?: 80;
-
-            if (NO == [url.path isEqualToString:@""]) {
-                [_socket setResourceName:[url.path substringFromIndex:1]];
-            }
-
-            [_socket connectToHost:host onPort:port];
-        }
-        @catch (NSException *exception) {
-            [_primus emit:@"incoming::error", exception];
-        }
-    }];
-
-    [_primus on:@"outgoing::data" listener:^(id data) {
-        if (!_socket || !_socket.isConnected) {
-            return;
-        }
-
-        @try {
-            [_socket sendMessage:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
-        }
-        @catch (NSException *exception) {
-            [_primus emit:@"incoming::error", exception];
-        }
-    }];
-
-    [_primus on:@"outgoing::reconnect" listener:^{
-        if (_socket) {
-            [_primus emit:@"outgoing::end"];
-        }
-
-        [_primus emit:@"outgoing::open"];
-    }];
-
-    [_primus on:@"outgoing::end" listener:^{
-        if (!_socket) {
-            return;
-        }
-
-        [_socket disconnect];
-        _socket = nil;
-    }];
+    [_primus removeListener:@"outgoing::open" selector:@selector(onOutgoingOpen) target:self];
+    [_primus removeListener:@"outgoing::data" selector:@selector(onOutgoingData:) target:self];
+    [_primus removeListener:@"outgoing::reconnect" selector:@selector(onOutgoingReconnect) target:self];
+    [_primus removeListener:@"outgoing::end" selector:@selector(onOutgoingEnd) target:self];
 }
+
+#pragma mark - Event listeners
+
+- (void)onOutgoingOpen
+{
+    @try {
+        _socket = [[SocketIO alloc] initWithDelegate:self];
+
+        NSURL *url = _primus.request.URL;
+        NSString *host = url.host;
+        NSInteger port = [url.port integerValue] ?: 80;
+
+        if (NO == [url.path isEqualToString:@""]) {
+            [_socket setResourceName:[url.path substringFromIndex:1]];
+        }
+
+        [_socket connectToHost:host onPort:port];
+    }
+    @catch (NSException *exception) {
+        [_primus emit:@"incoming::error", exception];
+    }
+}
+
+- (void)onOutgoingData:(id)data
+{
+    if (!_socket || !_socket.isConnected) {
+        return;
+    }
+
+    @try {
+        [_socket sendMessage:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
+    }
+    @catch (NSException *exception) {
+        [_primus emit:@"incoming::error", exception];
+    }
+}
+
+- (void)onOutgoingReconnect
+{
+    if (_socket) {
+        [_primus emit:@"outgoing::end"];
+    }
+
+    [_primus emit:@"outgoing::open"];
+}
+
+- (void)onOutgoingEnd
+{
+    if (!_socket) {
+        return;
+    }
+
+    [_socket disconnect];
+    _socket = nil;
+}
+
+#pragma mark - Transformer methods
 
 - (NSString *)id
 {
     return _socket.sid;
 }
+
+#pragma mark - SocketIODelegate
 
 - (void)socketIODidConnect:(SocketIO *)socket
 {
