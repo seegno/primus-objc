@@ -101,7 +101,7 @@
 
         [self emit:@"open"];
 
-        [self sendHeartbeat];
+        [self startHeartbeat];
 
         if (_buffer.count > 0) {
             for (id data in _buffer) {
@@ -118,7 +118,7 @@
         [_timers.pong invalidate];
         _timers.pong = nil;
 
-        [self sendHeartbeat];
+        [self startHeartbeat];
     }];
 
     [self on:@"incoming::error" listener:^(NSError *error) {
@@ -457,7 +457,7 @@
  * connected and our internet connection didn't drop. We cannot use server side
  * heartbeats for this unfortunately.
  */
-- (void)sendHeartbeat
+- (void)startHeartbeat
 {
     if (! self.options.ping) {
         return;
