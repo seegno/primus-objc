@@ -14,7 +14,7 @@ sharedExamplesFor(@"a transformer", ^(NSDictionary *data) {
     setAsyncSpecTimeout(10);
 
     if (!data || !data[@"transformerClass"]) {
-        XCTFail(@"No test transformer class specified.");
+        NSAssert(NO, @"No test transformer class specified.");
     }
 
     __block NSTask *server;
@@ -100,7 +100,7 @@ sharedExamplesFor(@"a transformer", ^(NSDictionary *data) {
         }];
 
         [primus on:@"error" listener:^(NSError *error) {
-            XCTFail(@"received error %@", error);
+            NSAssert(NO, @"received error %@", error);
         }];
 
         [primus open];
@@ -116,7 +116,7 @@ sharedExamplesFor(@"a transformer", ^(NSDictionary *data) {
         }];
 
         [primus on:@"error" listener:^(NSError *error) {
-            XCTFail(@"received error %@", error);
+            NSAssert(NO, @"received error %@", error);
         }];
 
         [primus open];
@@ -125,14 +125,14 @@ sharedExamplesFor(@"a transformer", ^(NSDictionary *data) {
     it(@"emits `incoming::end` with `server-close` intention", ^AsyncBlock {
         [primus on:@"incoming::end" listener:^(NSString *intentional) {
             if (NO == [intentional isEqualToString:@"primus::server::close"]) {
-                XCTFail(@"connection closed intentionally");
+                NSAssert(NO, @"connection closed intentionally");
             }
 
             done();
         }];
 
         [primus on:@"error" listener:^(NSError *error) {
-            XCTFail(@"received error %@", error);
+            NSAssert(NO, @"received error %@", error);
         }];
 
         [primus emit:@"incoming::end", @"primus::server::close"];
@@ -144,7 +144,7 @@ sharedExamplesFor(@"a transformer", ^(NSDictionary *data) {
         }];
 
         [primus on:@"error" listener:^(NSError *error) {
-            XCTFail(@"received error %@", error);
+            NSAssert(NO, @"received error %@", error);
         }];
 
         [primus open];

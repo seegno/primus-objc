@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E1F45BA2BF240B2BD7E88A6 /* libPods-PrimusTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 696217F923984D21B38AC44D /* libPods-PrimusTests.a */; };
+		642EDD6519C70EA9000DB6D6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 642EDD6419C70EA9000DB6D6 /* XCTest.framework */; };
 		7B88A21B8E034D248EAEB977 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CBC4DD3581504004B2A19645 /* libPods.a */; };
 		E500D4DD18C0CD38001FE7CE /* MKTRequiredObjectAndProtocolMock.h in Headers */ = {isa = PBXBuildFile; fileRef = E500D4DB18C0CD38001FE7CE /* MKTRequiredObjectAndProtocolMock.h */; };
 		E500D4DE18C0CD38001FE7CE /* MKTRequiredObjectAndProtocolMock.m in Sources */ = {isa = PBXBuildFile; fileRef = E500D4DC18C0CD38001FE7CE /* MKTRequiredObjectAndProtocolMock.m */; };
@@ -34,7 +35,6 @@
 		E5ECB59F18AAA69300FC96F7 /* PrimusTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ECB59E18AAA69300FC96F7 /* PrimusTransformers.m */; };
 		E5ECB5A618AAADB400FC96F7 /* JSONTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ECB5A518AAADB400FC96F7 /* JSONTest.m */; };
 		E5F94BD91885B5BD00170670 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F94BD81885B5BD00170670 /* Cocoa.framework */; };
-		E5F94BEA1885B5BD00170670 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F94BE91885B5BD00170670 /* XCTest.framework */; };
 		E5F94BEB1885B5BD00170670 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F94BD81885B5BD00170670 /* Cocoa.framework */; };
 		E5F94BEE1885B5BD00170670 /* Primus.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F94BD51885B5BD00170670 /* Primus.dylib */; };
 		E5F94BF41885B5BD00170670 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5F94BF21885B5BD00170670 /* InfoPlist.strings */; };
@@ -60,6 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		642EDD6419C70EA9000DB6D6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		696217F923984D21B38AC44D /* libPods-PrimusTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PrimusTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7277FA3FA18740E789A9F58C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		74A248551C9F4EEF8E00F4EE /* Pods-PrimusTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrimusTests.xcconfig"; path = "Pods/Pods-PrimusTests.xcconfig"; sourceTree = "<group>"; };
@@ -103,7 +104,6 @@
 		E5F94BDD1885B5BD00170670 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		E5F94BE01885B5BD00170670 /* Primus-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Primus-Prefix.pch"; sourceTree = "<group>"; };
 		E5F94BE81885B5BD00170670 /* PrimusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrimusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E5F94BE91885B5BD00170670 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		E5F94BF11885B5BD00170670 /* PrimusTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PrimusTests-Info.plist"; sourceTree = "<group>"; };
 		E5F94BF31885B5BD00170670 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E5F94BF51885B5BD00170670 /* PrimusTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrimusTest.m; sourceTree = "<group>"; };
@@ -132,8 +132,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				642EDD6519C70EA9000DB6D6 /* XCTest.framework in Frameworks */,
 				E5F94BEB1885B5BD00170670 /* Cocoa.framework in Frameworks */,
-				E5F94BEA1885B5BD00170670 /* XCTest.framework in Frameworks */,
 				E5F94BEE1885B5BD00170670 /* Primus.dylib in Frameworks */,
 				0E1F45BA2BF240B2BD7E88A6 /* libPods-PrimusTests.a in Frameworks */,
 			);
@@ -258,23 +258,15 @@
 		E5F94BD71885B5BD00170670 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E5F94BDA1885B5BD00170670 /* Other Frameworks */,
+				E5F94BDB1885B5BD00170670 /* Foundation.framework */,
+				E5F94BDC1885B5BD00170670 /* CoreData.framework */,
+				E5F94BDD1885B5BD00170670 /* AppKit.framework */,
+				642EDD6419C70EA9000DB6D6 /* XCTest.framework */,
 				E5F94BD81885B5BD00170670 /* Cocoa.framework */,
-				E5F94BE91885B5BD00170670 /* XCTest.framework */,
 				CBC4DD3581504004B2A19645 /* libPods.a */,
 				696217F923984D21B38AC44D /* libPods-PrimusTests.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		E5F94BDA1885B5BD00170670 /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E5F94BDB1885B5BD00170670 /* Foundation.framework */,
-				E5F94BDC1885B5BD00170670 /* CoreData.framework */,
-				E5F94BDD1885B5BD00170670 /* AppKit.framework */,
-			);
-			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
 		E5F94BDE1885B5BD00170670 /* Primus */ = {
@@ -440,7 +432,7 @@
 		E5F94BCD1885B5BD00170670 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = Seegno;
 				TargetAttributes = {
 					E5F94BE71885B5BD00170670 = {
@@ -672,8 +664,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 74A248551C9F4EEF8E00F4EE /* Pods-PrimusTests.xcconfig */;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"$(inherited)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Primus/Primus-Prefix.pch";
 				PRODUCT_NAME = Primus;
@@ -684,8 +682,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 74A248551C9F4EEF8E00F4EE /* Pods-PrimusTests.xcconfig */;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"$(inherited)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Primus/Primus-Prefix.pch";
 				PRODUCT_NAME = Primus;
@@ -699,8 +703,10 @@
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Primus.dylib";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
+					"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/Library/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PrimusTests/PrimusTests-Prefix.pch";
@@ -725,8 +731,10 @@
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Primus.dylib";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
+					"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/Library/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PrimusTests/PrimusTests-Prefix.pch";

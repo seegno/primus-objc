@@ -114,7 +114,7 @@ describe(@"Primus", ^{
         [primus end];
 
         [primus on:@"end" listener:^{
-            XCTFail(@"listener should not fire");
+            NSAssert(NO, @"listener should not fire");
         }];
 
         [primus end];
@@ -140,7 +140,7 @@ describe(@"Primus", ^{
 
     it(@"should do nothing if id is unavailable", ^{
         [primus id:^(NSString *socketId) {
-            XCTFail(@"listener should not fire");
+            NSAssert(NO, @"listener should not fire");
         }];
     });
 
@@ -168,7 +168,7 @@ describe(@"Primus", ^{
 
     it(@"should not open the socket if the state is manual", ^{
         [primus on:@"open" listener:^{
-            XCTFail(@"listener should not fire");
+            NSAssert(NO, @"listener should not fire");
         }];
 
         expect(primus.readyState).notTo.equal(kPrimusReadyStateOpen);
@@ -178,7 +178,7 @@ describe(@"Primus", ^{
         [primus emit:@"incoming::open"];
 
         [primus on:@"reconnect" listener:^(PrimusReconnectOptions *options) {
-            XCTFail(@"listener should not fire");
+            NSAssert(NO, @"listener should not fire");
         }];
 
         [primus end];
@@ -188,7 +188,7 @@ describe(@"Primus", ^{
         [primus.options.reconnect.strategies removeAllObjects];
 
         [primus on:@"reconnect" listener:^(PrimusReconnectOptions *options) {
-            XCTFail(@"listener should not fire");
+            NSAssert(NO, @"listener should not fire");
         }];
 
         [primus emit:@"incoming::open"];
@@ -264,7 +264,7 @@ describe(@"Primus", ^{
         }];
 
         [primus on:@"data" listener:^{
-            XCTFail(@"listener should not fire");
+            NSAssert(NO, @"listener should not fire");
         }];
 
         [primus emit:@"incoming::data", [@"{\"key\":\"value\"}" dataUsingEncoding:NSUTF8StringEncoding]];
@@ -298,7 +298,7 @@ describe(@"Primus", ^{
         [primus emit:@"incoming::open"];
 
         [primus on:@"outgoing::data" listener:^{
-            XCTFail(@"listener should not fire");
+            NSAssert(NO, @"listener should not fire");
         }];
 
         [primus write:@{ @"example": @"parameter" }];
