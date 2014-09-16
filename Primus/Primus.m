@@ -59,6 +59,7 @@
         _reconnectOptions = options.reconnect;
         _buffer = [[NSMutableArray alloc] init];
         _transformers = [[PrimusTransformers alloc] init];
+        _plugins = [[NSMutableDictionary alloc] init];
         _timers = [[PrimusTimers alloc] init];
         _reach = [Reachability reachabilityForInternetConnection];
         _online = YES;
@@ -343,7 +344,7 @@
     }
 
     // Resolve and instantiate plugins
-    NSMutableDictionary *plugins = [[NSMutableDictionary alloc] init];
+    [self.plugins removeAllObjects];
 
     for (NSString *pluginName in self.options.plugins.allKeys) {
         id pluginClass = self.options.plugins[pluginName];
@@ -361,10 +362,8 @@
             @throw [NSException exceptionWithName:NSInvalidArgumentException reason:@"Plugin should be a class whose instances conform to PluginProtocol" userInfo:nil];
         }
 
-        plugins[pluginName] = [plugin initWithPrimus:self];
+        self.plugins[pluginName] = [plugin initWithPrimus:self];
     }
-
-    _plugins = [NSDictionary dictionaryWithDictionary:plugins];
 
     [self emit:@"outgoing::open"];
 }
@@ -589,6 +588,7 @@
     _writable = NO;
     _readyState = kPrimusReadyStateClosed;
 
+    [_plugins removeAllObjects];
     [_timers clearAll];
 
     [self emit:@"outgoing::end"];

@@ -33,7 +33,7 @@
 @property (nonatomic, readonly) PrimusReconnectOptions *attemptOptions;
 
 @property (nonatomic, readonly) PrimusTransformers *transformers;
-@property (nonatomic, readonly) NSDictionary *plugins;
+@property (nonatomic, readonly) NSMutableDictionary *plugins;
 @property (nonatomic) id<TransformerProtocol> transformer;
 @property (nonatomic) id<ParserProtocol> parser;
 
