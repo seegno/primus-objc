@@ -1,6 +1,6 @@
 PODS:
   - BlocksKit/DynamicDelegate (2.2.5)
-  - Emitter (0.0.7):
+  - Emitter (0.0.8):
     - BlocksKit/DynamicDelegate
   - Expecta (0.3.1)
   - GCDTimer (1.1.0)
@@ -16,7 +16,7 @@ PODS:
     - SocketRocket (~> 0.2)
   - SocketRocket (0.3.1-beta2)
   - Specta (0.2.1)
-  - TPWeakProxy (1.0.0)
+  - TPWeakProxy (1.0.1)
 
 DEPENDENCIES:
   - Emitter
@@ -31,7 +31,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   BlocksKit: 4439e7f30a9f90743462ca63545a15c1f4304cef
-  Emitter: be2820bd9ef5a3644da3cb34d9ec19e44c1213e6
+  Emitter: 87e6d4003c6e321f4c415bd803a8a0deafd752f4
   Expecta: 03aabd0a89d8dea843baecb19a7fd7466a69a31d
   GCDTimer: a5992055d0391db6ff1e068b0a4ca6befd1deade
   libextobjc: ba42e4111f433273a886cd54f0ddaddb7f62f82f
@@ -41,6 +41,6 @@ SPEC CHECKSUMS:
   socket.IO: db3e71805c862038ab73209dda2b0ad6babc54b2
   SocketRocket: 79a68ae186063c65e1fe6f638b1ae2927aa5f304
   Specta: 9141310f46b1f68b676650ff2854e1ed0b74163a
-  TPWeakProxy: a23251ba7fbe268c93f809cc072ef834f5063798
+  TPWeakProxy: da4177b6ae5eff685642c1cd9698f71ef7060ea5
 
 COCOAPODS: 0.33.1
