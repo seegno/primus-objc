@@ -10,6 +10,22 @@
 
 #import "SocketRocketClient.h"
 
+typedef NS_ENUM(NSInteger, SocketRocketErrorCode) {
+    kSocketRocketErrorCode = 1000,
+    kSocketRocketErrorCodeNormal = 1000,
+    kSocketRocketErrorCodeGoingAway = 1001,
+    kSocketRocketErrorCodeProtocolError = 1002,
+    kSocketRocketErrorCodeUnsupportedData = 1003,
+    kSocketRocketErrorCodeReserved = 1004,
+    kSocketRocketErrorCodeReservedForExtensions = 1005,
+    kSocketRocketErrorCodeReservedForExtensions2 = 1006,
+    kSocketRocketErrorCodeInconsistentOrInvalidData = 1007,
+    kSocketRocketErrorCodePolicyViolation = 1008,
+    kSocketRocketErrorCodeMessageTooBig = 1009,
+    kSocketRocketErrorCodeExtensionHandshakeMissing = 1010,
+    kSocketRocketErrorCodeAnUnexpectedConditionPreventedTheRequestFromBeingFulfilled = 1011
+};
+
 @implementation SocketRocketClient
 
 - (id)initWithPrimus:(id<PrimusProtocol>)primus
@@ -81,7 +97,7 @@
         return;
     }
 
-    [_socket close];
+    [_socket closeWithCode:kSocketRocketErrorCodeNormal reason:nil];
     _socket = nil;
 }
 
