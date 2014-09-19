@@ -327,12 +327,14 @@
 }
 
 /**
- * Establish a connection with the server. When this function is called we
- * assume that we don't have any open connections. If you do call it when you
- * have a connection open, it could cause duplicate connections.
+ * Establish a connection with the server.
  */
 - (void)open
 {
+    if (kPrimusReadyStateClosed != self.readyState) {
+        return;
+    }
+
     [self initialize];
 
     if (!self.transformer) {
