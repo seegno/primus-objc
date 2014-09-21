@@ -53,35 +53,35 @@ Since we haven't specified a transformer, Primus will connect to then `/spec` [e
     Primus *primus = [[Primus alloc] initWithURL:url];
 
     [primus on:@"reconnect" listener:^(PrimusReconnectOptions *options) {
-        NSLog(@"[%@] %@ - %@", @"reconnect", @"Reconnecting", @"We are scheduling a new reconnect attempt");
+        NSLog(@"[reconnect] - We are scheduling a new reconnect attempt");
     }];
 
     [primus on:@"online" listener:^{
-        NSLog(@"[%@] %@ - %@", @"network", @"Online", @"We have regained control over our internet connection.");
+        NSLog(@"[network] - We have regained control over our internet connection.");
     }];
 
     [primus on:@"offline" listener:^{
-        NSLog(@"[%@] %@ - %@", @"network", @"Offline", @"We lost our internet connection.");
+        NSLog(@"[network] - We lost our internet connection.");
     }];
 
     [primus on:@"open" listener:^{
-        NSLog(@"[%@] %@ - %@", @"open", @"Open", @"The connection has been established.");
+        NSLog(@"[open] - The connection has been established.");
     }];
 
     [primus on:@"error" listener:^(NSError *error) {
-        NSLog(@"[%@] %@ - %@", @"error", @"Error", error);
+        NSLog(@"[error] - Error: %@", error);
     }];
 
     [primus on:@"data" listener:^(NSDictionary *data, id raw) {
-        NSLog(@"[%@] %@ - %@", @"data", @"Received data", data);
+        NSLog(@"[data] - Received data: %@", data);
     }];
 
     [primus on:@"end" listener:^{
-        NSLog(@"[%@] %@ - %@", @"end", @"End", @"The connection has ended.");
+        NSLog(@"[end] - The connection has ended.");
     }];
 
     [primus on:@"close" listener:^{
-        NSLog(@"[%@] %@ - %@", @"close", @"close", @"We\'ve lost the connection to the server.");
+        NSLog(@"[close] - We've lost the connection to the server.");
     }];
 }
 ```
