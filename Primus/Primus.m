@@ -497,7 +497,6 @@
         }
     }];
 
-    [self once:@"error" listener:stop];
     [self once:@"open" listener:stop];
     [self once:@"end" listener:stop];
 }
