@@ -1,783 +1,2056 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		0E1F45BA2BF240B2BD7E88A6 /* libPods-PrimusTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 696217F923984D21B38AC44D /* libPods-PrimusTests.a */; };
-		642EDD6519C70EA9000DB6D6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 642EDD6419C70EA9000DB6D6 /* XCTest.framework */; };
-		7B88A21B8E034D248EAEB977 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CBC4DD3581504004B2A19645 /* libPods.a */; };
-		E500D4DD18C0CD38001FE7CE /* MKTRequiredObjectAndProtocolMock.h in Headers */ = {isa = PBXBuildFile; fileRef = E500D4DB18C0CD38001FE7CE /* MKTRequiredObjectAndProtocolMock.h */; };
-		E500D4DE18C0CD38001FE7CE /* MKTRequiredObjectAndProtocolMock.m in Sources */ = {isa = PBXBuildFile; fileRef = E500D4DC18C0CD38001FE7CE /* MKTRequiredObjectAndProtocolMock.m */; };
-		E51005BF1886BDD900A8F1F2 /* PrimusConnectOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = E51005BD1886BDD900A8F1F2 /* PrimusConnectOptions.h */; };
-		E51005C01886BDD900A8F1F2 /* PrimusConnectOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = E51005BE1886BDD900A8F1F2 /* PrimusConnectOptions.m */; };
-		E51005C41887F38400A8F1F2 /* JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = E51005C21887F38400A8F1F2 /* JSON.h */; };
-		E51005C51887F38400A8F1F2 /* JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E51005C31887F38400A8F1F2 /* JSON.m */; };
-		E5682C9618B5175200F5D583 /* ParserProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = E5682C9418B5175200F5D583 /* ParserProtocol.h */; };
-		E5682C9718B5175200F5D583 /* TransformerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = E5682C9518B5175200F5D583 /* TransformerProtocol.h */; };
-		E58795751886A94C00913F61 /* PrimusTimers.m in Sources */ = {isa = PBXBuildFile; fileRef = E587956F1886A94300913F61 /* PrimusTimers.m */; };
-		E58795761886A94E00913F61 /* PrimusReconnectOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = E587956D1886A94300913F61 /* PrimusReconnectOptions.m */; };
-		E58795771886A95000913F61 /* PrimusTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = E58795711886A94300913F61 /* PrimusTransformers.m */; };
-		E59D15A518D38401006CFE49 /* SocketRocketWebSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = E59D15A318D38401006CFE49 /* SocketRocketWebSocket.h */; };
-		E59D15A618D38401006CFE49 /* SocketRocketWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = E59D15A418D38401006CFE49 /* SocketRocketWebSocket.m */; };
-		E5DEB03418AB90A500EAC444 /* SocketRocketClientTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DEB03318AB90A500EAC444 /* SocketRocketClientTest.m */; };
-		E5DEB03D18ABF47D00EAC444 /* TransformerBehaviorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DEB03C18ABF47D00EAC444 /* TransformerBehaviorTest.m */; };
-		E5DEB03F18ABFC9C00EAC444 /* SocketIOClientTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DEB03E18ABFC9C00EAC444 /* SocketIOClientTest.m */; };
-		E5DEB04718ACF83F00EAC444 /* node_modules in Resources */ = {isa = PBXBuildFile; fileRef = E5DEB04618ACF82F00EAC444 /* node_modules */; };
-		E5DEB04818AD17A600EAC444 /* SocketRocketServerTest.js in Resources */ = {isa = PBXBuildFile; fileRef = E5DEB04018ACE3A800EAC444 /* SocketRocketServerTest.js */; };
-		E5DEB04A18AD4C4F00EAC444 /* SocketIOServerTest.js in Resources */ = {isa = PBXBuildFile; fileRef = E5DEB04918AD4C4F00EAC444 /* SocketIOServerTest.js */; };
-		E5ECB59918AA803700FC96F7 /* PrimusReconnectOptionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ECB59818AA803700FC96F7 /* PrimusReconnectOptionsTest.m */; };
-		E5ECB59B18AA8A6900FC96F7 /* PrimusConnectOptionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ECB59A18AA8A6900FC96F7 /* PrimusConnectOptionsTest.m */; };
-		E5ECB59D18AA8E1700FC96F7 /* PrimusTimersTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ECB59C18AA8E1700FC96F7 /* PrimusTimersTest.m */; };
-		E5ECB59F18AAA69300FC96F7 /* PrimusTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ECB59E18AAA69300FC96F7 /* PrimusTransformers.m */; };
-		E5ECB5A618AAADB400FC96F7 /* JSONTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ECB5A518AAADB400FC96F7 /* JSONTest.m */; };
-		E5F94BD91885B5BD00170670 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F94BD81885B5BD00170670 /* Cocoa.framework */; };
-		E5F94BEB1885B5BD00170670 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F94BD81885B5BD00170670 /* Cocoa.framework */; };
-		E5F94BEE1885B5BD00170670 /* Primus.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F94BD51885B5BD00170670 /* Primus.dylib */; };
-		E5F94BF41885B5BD00170670 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5F94BF21885B5BD00170670 /* InfoPlist.strings */; };
-		E5F94BF61885B5BD00170670 /* PrimusTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F94BF51885B5BD00170670 /* PrimusTest.m */; };
-		E5F94C031885B5E900170670 /* SocketIOClient.h in Headers */ = {isa = PBXBuildFile; fileRef = E5F94C011885B5E900170670 /* SocketIOClient.h */; };
-		E5F94C041885B5E900170670 /* SocketIOClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F94C021885B5E900170670 /* SocketIOClient.m */; };
-		E5F94C0C1885B6C600170670 /* Primus.h in Headers */ = {isa = PBXBuildFile; fileRef = E5F94C0A1885B6C600170670 /* Primus.h */; };
-		E5F94C0D1885B6C600170670 /* Primus.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F94C0B1885B6C600170670 /* Primus.m */; };
-		E5FA210418893C8F00638647 /* SocketRocketClient.h in Headers */ = {isa = PBXBuildFile; fileRef = E5FA210218893C8F00638647 /* SocketRocketClient.h */; };
-		E5FA210518893C8F00638647 /* SocketRocketClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E5FA210318893C8F00638647 /* SocketRocketClient.m */; };
-		E5FA210918893F1A00638647 /* Transformer.h in Headers */ = {isa = PBXBuildFile; fileRef = E5FA210718893F1A00638647 /* Transformer.h */; };
-		E5FA210A18893F1A00638647 /* Transformer.m in Sources */ = {isa = PBXBuildFile; fileRef = E5FA210818893F1A00638647 /* Transformer.m */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		E5F94BEC1885B5BD00170670 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E5F94BCD1885B5BD00170670 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E5F94BD41885B5BD00170670;
-			remoteInfo = Primus;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXFileReference section */
-		642EDD6419C70EA9000DB6D6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		696217F923984D21B38AC44D /* libPods-PrimusTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PrimusTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7277FA3FA18740E789A9F58C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		74A248551C9F4EEF8E00F4EE /* Pods-PrimusTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrimusTests.xcconfig"; path = "Pods/Pods-PrimusTests.xcconfig"; sourceTree = "<group>"; };
-		CBC4DD3581504004B2A19645 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		E500D4DB18C0CD38001FE7CE /* MKTRequiredObjectAndProtocolMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTRequiredObjectAndProtocolMock.h; sourceTree = "<group>"; };
-		E500D4DC18C0CD38001FE7CE /* MKTRequiredObjectAndProtocolMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTRequiredObjectAndProtocolMock.m; sourceTree = "<group>"; };
-		E51005BD1886BDD900A8F1F2 /* PrimusConnectOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrimusConnectOptions.h; sourceTree = "<group>"; };
-		E51005BE1886BDD900A8F1F2 /* PrimusConnectOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrimusConnectOptions.m; sourceTree = "<group>"; };
-		E51005C21887F38400A8F1F2 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
-		E51005C31887F38400A8F1F2 /* JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSON.m; sourceTree = "<group>"; };
-		E5682C9418B5175200F5D583 /* ParserProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParserProtocol.h; sourceTree = "<group>"; };
-		E5682C9518B5175200F5D583 /* TransformerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformerProtocol.h; sourceTree = "<group>"; };
-		E5682C9818B5176300F5D583 /* PluginProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PluginProtocol.h; sourceTree = "<group>"; };
-		E587956A1886A94300913F61 /* PrimusError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrimusError.h; sourceTree = "<group>"; };
-		E587956C1886A94300913F61 /* PrimusReconnectOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrimusReconnectOptions.h; sourceTree = "<group>"; };
-		E587956D1886A94300913F61 /* PrimusReconnectOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrimusReconnectOptions.m; sourceTree = "<group>"; };
-		E587956E1886A94300913F61 /* PrimusTimers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrimusTimers.h; sourceTree = "<group>"; };
-		E587956F1886A94300913F61 /* PrimusTimers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrimusTimers.m; sourceTree = "<group>"; };
-		E58795701886A94300913F61 /* PrimusTransformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrimusTransformers.h; sourceTree = "<group>"; };
-		E58795711886A94300913F61 /* PrimusTransformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrimusTransformers.m; sourceTree = "<group>"; };
-		E58C3F7B19869EDE00461CE7 /* Primus.podspec.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Primus.podspec.json; sourceTree = "<group>"; };
-		E59D15A318D38401006CFE49 /* SocketRocketWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketRocketWebSocket.h; sourceTree = "<group>"; };
-		E59D15A418D38401006CFE49 /* SocketRocketWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketRocketWebSocket.m; sourceTree = "<group>"; };
-		E5DEB03318AB90A500EAC444 /* SocketRocketClientTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketRocketClientTest.m; sourceTree = "<group>"; };
-		E5DEB03C18ABF47D00EAC444 /* TransformerBehaviorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransformerBehaviorTest.m; sourceTree = "<group>"; };
-		E5DEB03E18ABFC9C00EAC444 /* SocketIOClientTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOClientTest.m; sourceTree = "<group>"; };
-		E5DEB04018ACE3A800EAC444 /* SocketRocketServerTest.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = SocketRocketServerTest.js; sourceTree = "<group>"; };
-		E5DEB04218ACE5F200EAC444 /* package.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
-		E5DEB04618ACF82F00EAC444 /* node_modules */ = {isa = PBXFileReference; lastKnownFileType = folder; path = node_modules; sourceTree = "<group>"; };
-		E5DEB04918AD4C4F00EAC444 /* SocketIOServerTest.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = SocketIOServerTest.js; sourceTree = "<group>"; };
-		E5E5D7F3188D85F50014C4C0 /* PrimusTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PrimusTests-Prefix.pch"; sourceTree = "<group>"; };
-		E5ECB59818AA803700FC96F7 /* PrimusReconnectOptionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrimusReconnectOptionsTest.m; sourceTree = "<group>"; };
-		E5ECB59A18AA8A6900FC96F7 /* PrimusConnectOptionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrimusConnectOptionsTest.m; sourceTree = "<group>"; };
-		E5ECB59C18AA8E1700FC96F7 /* PrimusTimersTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrimusTimersTest.m; sourceTree = "<group>"; };
-		E5ECB59E18AAA69300FC96F7 /* PrimusTransformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrimusTransformers.m; sourceTree = "<group>"; };
-		E5ECB5A518AAADB400FC96F7 /* JSONTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONTest.m; sourceTree = "<group>"; };
-		E5F94BD51885B5BD00170670 /* Primus.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = Primus.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		E5F94BD81885B5BD00170670 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		E5F94BDB1885B5BD00170670 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		E5F94BDC1885B5BD00170670 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		E5F94BDD1885B5BD00170670 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		E5F94BE01885B5BD00170670 /* Primus-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Primus-Prefix.pch"; sourceTree = "<group>"; };
-		E5F94BE81885B5BD00170670 /* PrimusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrimusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E5F94BF11885B5BD00170670 /* PrimusTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PrimusTests-Info.plist"; sourceTree = "<group>"; };
-		E5F94BF31885B5BD00170670 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		E5F94BF51885B5BD00170670 /* PrimusTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrimusTest.m; sourceTree = "<group>"; };
-		E5F94C011885B5E900170670 /* SocketIOClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOClient.h; sourceTree = "<group>"; };
-		E5F94C021885B5E900170670 /* SocketIOClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOClient.m; sourceTree = "<group>"; };
-		E5F94C0A1885B6C600170670 /* Primus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Primus.h; sourceTree = "<group>"; };
-		E5F94C0B1885B6C600170670 /* Primus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Primus.m; sourceTree = "<group>"; };
-		E5FA210218893C8F00638647 /* SocketRocketClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketRocketClient.h; sourceTree = "<group>"; };
-		E5FA210318893C8F00638647 /* SocketRocketClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketRocketClient.m; sourceTree = "<group>"; };
-		E5FA210618893DFE00638647 /* PrimusProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrimusProtocol.h; sourceTree = "<group>"; };
-		E5FA210718893F1A00638647 /* Transformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transformer.h; sourceTree = "<group>"; };
-		E5FA210818893F1A00638647 /* Transformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transformer.m; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		E5F94BD21885B5BD00170670 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E5F94BD91885B5BD00170670 /* Cocoa.framework in Frameworks */,
-				7B88A21B8E034D248EAEB977 /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E5F94BE51885B5BD00170670 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				642EDD6519C70EA9000DB6D6 /* XCTest.framework in Frameworks */,
-				E5F94BEB1885B5BD00170670 /* Cocoa.framework in Frameworks */,
-				E5F94BEE1885B5BD00170670 /* Primus.dylib in Frameworks */,
-				0E1F45BA2BF240B2BD7E88A6 /* libPods-PrimusTests.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		E500D4DA18C0CD1E001FE7CE /* Mock */ = {
-			isa = PBXGroup;
-			children = (
-				E500D4DB18C0CD38001FE7CE /* MKTRequiredObjectAndProtocolMock.h */,
-				E500D4DC18C0CD38001FE7CE /* MKTRequiredObjectAndProtocolMock.m */,
-			);
-			path = Mock;
-			sourceTree = "<group>";
-		};
-		E51005C11887F38400A8F1F2 /* JSON */ = {
-			isa = PBXGroup;
-			children = (
-				E51005C21887F38400A8F1F2 /* JSON.h */,
-				E51005C31887F38400A8F1F2 /* JSON.m */,
-			);
-			path = JSON;
-			sourceTree = "<group>";
-		};
-		E58795691886A94300913F61 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				E587956A1886A94300913F61 /* PrimusError.h */,
-				E51005BD1886BDD900A8F1F2 /* PrimusConnectOptions.h */,
-				E51005BE1886BDD900A8F1F2 /* PrimusConnectOptions.m */,
-				E587956C1886A94300913F61 /* PrimusReconnectOptions.h */,
-				E587956D1886A94300913F61 /* PrimusReconnectOptions.m */,
-				E58795701886A94300913F61 /* PrimusTransformers.h */,
-				E58795711886A94300913F61 /* PrimusTransformers.m */,
-				E587956E1886A94300913F61 /* PrimusTimers.h */,
-				E587956F1886A94300913F61 /* PrimusTimers.m */,
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
-		E5ECB59718AA803700FC96F7 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				E5ECB59A18AA8A6900FC96F7 /* PrimusConnectOptionsTest.m */,
-				E5ECB59818AA803700FC96F7 /* PrimusReconnectOptionsTest.m */,
-				E5ECB59E18AAA69300FC96F7 /* PrimusTransformers.m */,
-				E5ECB59C18AA8E1700FC96F7 /* PrimusTimersTest.m */,
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
-		E5ECB5A018AAAD7B00FC96F7 /* Parsers */ = {
-			isa = PBXGroup;
-			children = (
-				E5ECB5A118AAAD7B00FC96F7 /* JSON */,
-			);
-			path = Parsers;
-			sourceTree = "<group>";
-		};
-		E5ECB5A118AAAD7B00FC96F7 /* JSON */ = {
-			isa = PBXGroup;
-			children = (
-				E5ECB5A518AAADB400FC96F7 /* JSONTest.m */,
-			);
-			path = JSON;
-			sourceTree = "<group>";
-		};
-		E5ECB5A218AAAD9B00FC96F7 /* Transformers */ = {
-			isa = PBXGroup;
-			children = (
-				E5ECB5A418AAAD9B00FC96F7 /* SocketRocket */,
-				E5ECB5A318AAAD9B00FC96F7 /* socket.IO */,
-				E5DEB03C18ABF47D00EAC444 /* TransformerBehaviorTest.m */,
-			);
-			path = Transformers;
-			sourceTree = "<group>";
-		};
-		E5ECB5A318AAAD9B00FC96F7 /* socket.IO */ = {
-			isa = PBXGroup;
-			children = (
-				E5DEB03E18ABFC9C00EAC444 /* SocketIOClientTest.m */,
-				E5DEB04918AD4C4F00EAC444 /* SocketIOServerTest.js */,
-			);
-			path = socket.IO;
-			sourceTree = "<group>";
-		};
-		E5ECB5A418AAAD9B00FC96F7 /* SocketRocket */ = {
-			isa = PBXGroup;
-			children = (
-				E5DEB03318AB90A500EAC444 /* SocketRocketClientTest.m */,
-				E5DEB04018ACE3A800EAC444 /* SocketRocketServerTest.js */,
-			);
-			path = SocketRocket;
-			sourceTree = "<group>";
-		};
-		E5F94BCC1885B5BD00170670 = {
-			isa = PBXGroup;
-			children = (
-				E5F94BDE1885B5BD00170670 /* Primus */,
-				E5F94BEF1885B5BD00170670 /* PrimusTests */,
-				E5F94BD71885B5BD00170670 /* Frameworks */,
-				E5F94BD61885B5BD00170670 /* Products */,
-				E5DEB04618ACF82F00EAC444 /* node_modules */,
-				E58C3F7B19869EDE00461CE7 /* Primus.podspec.json */,
-				E5DEB04218ACE5F200EAC444 /* package.json */,
-				7277FA3FA18740E789A9F58C /* Pods.xcconfig */,
-				74A248551C9F4EEF8E00F4EE /* Pods-PrimusTests.xcconfig */,
-			);
-			sourceTree = "<group>";
-		};
-		E5F94BD61885B5BD00170670 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E5F94BD51885B5BD00170670 /* Primus.dylib */,
-				E5F94BE81885B5BD00170670 /* PrimusTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		E5F94BD71885B5BD00170670 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E5F94BDB1885B5BD00170670 /* Foundation.framework */,
-				E5F94BDC1885B5BD00170670 /* CoreData.framework */,
-				E5F94BDD1885B5BD00170670 /* AppKit.framework */,
-				642EDD6419C70EA9000DB6D6 /* XCTest.framework */,
-				E5F94BD81885B5BD00170670 /* Cocoa.framework */,
-				CBC4DD3581504004B2A19645 /* libPods.a */,
-				696217F923984D21B38AC44D /* libPods-PrimusTests.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		E5F94BDE1885B5BD00170670 /* Primus */ = {
-			isa = PBXGroup;
-			children = (
-				E5F94BDF1885B5BD00170670 /* Supporting Files */,
-				E58795691886A94300913F61 /* Core */,
-				E5F94C071885B5FE00170670 /* Parsers */,
-				E5F94BFF1885B5E900170670 /* Transformers */,
-				E5682C9418B5175200F5D583 /* ParserProtocol.h */,
-				E5682C9518B5175200F5D583 /* TransformerProtocol.h */,
-				E5682C9818B5176300F5D583 /* PluginProtocol.h */,
-				E5FA210618893DFE00638647 /* PrimusProtocol.h */,
-				E5F94C0A1885B6C600170670 /* Primus.h */,
-				E5F94C0B1885B6C600170670 /* Primus.m */,
-			);
-			path = Primus;
-			sourceTree = "<group>";
-		};
-		E5F94BDF1885B5BD00170670 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				E5F94BE01885B5BD00170670 /* Primus-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		E5F94BEF1885B5BD00170670 /* PrimusTests */ = {
-			isa = PBXGroup;
-			children = (
-				E5F94BF01885B5BD00170670 /* Supporting Files */,
-				E500D4DA18C0CD1E001FE7CE /* Mock */,
-				E5ECB59718AA803700FC96F7 /* Core */,
-				E5ECB5A018AAAD7B00FC96F7 /* Parsers */,
-				E5ECB5A218AAAD9B00FC96F7 /* Transformers */,
-				E5F94BF51885B5BD00170670 /* PrimusTest.m */,
-			);
-			path = PrimusTests;
-			sourceTree = "<group>";
-		};
-		E5F94BF01885B5BD00170670 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				E5E5D7F3188D85F50014C4C0 /* PrimusTests-Prefix.pch */,
-				E5F94BF11885B5BD00170670 /* PrimusTests-Info.plist */,
-				E5F94BF21885B5BD00170670 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		E5F94BFF1885B5E900170670 /* Transformers */ = {
-			isa = PBXGroup;
-			children = (
-				E5FA210118893C8100638647 /* SocketRocket */,
-				E5F94C001885B5E900170670 /* socket.IO */,
-				E5FA210718893F1A00638647 /* Transformer.h */,
-				E5FA210818893F1A00638647 /* Transformer.m */,
-			);
-			path = Transformers;
-			sourceTree = "<group>";
-		};
-		E5F94C001885B5E900170670 /* socket.IO */ = {
-			isa = PBXGroup;
-			children = (
-				E5F94C011885B5E900170670 /* SocketIOClient.h */,
-				E5F94C021885B5E900170670 /* SocketIOClient.m */,
-			);
-			path = socket.IO;
-			sourceTree = "<group>";
-		};
-		E5F94C071885B5FE00170670 /* Parsers */ = {
-			isa = PBXGroup;
-			children = (
-				E51005C11887F38400A8F1F2 /* JSON */,
-			);
-			path = Parsers;
-			sourceTree = "<group>";
-		};
-		E5FA210118893C8100638647 /* SocketRocket */ = {
-			isa = PBXGroup;
-			children = (
-				E5FA210218893C8F00638647 /* SocketRocketClient.h */,
-				E5FA210318893C8F00638647 /* SocketRocketClient.m */,
-				E59D15A318D38401006CFE49 /* SocketRocketWebSocket.h */,
-				E59D15A418D38401006CFE49 /* SocketRocketWebSocket.m */,
-			);
-			path = SocketRocket;
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXHeadersBuildPhase section */
-		E5DEB03A18ABF44700EAC444 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E500D4DD18C0CD38001FE7CE /* MKTRequiredObjectAndProtocolMock.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E5F94BD31885B5BD00170670 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E5682C9718B5175200F5D583 /* TransformerProtocol.h in Headers */,
-				E51005C41887F38400A8F1F2 /* JSON.h in Headers */,
-				E5F94C031885B5E900170670 /* SocketIOClient.h in Headers */,
-				E5F94C0C1885B6C600170670 /* Primus.h in Headers */,
-				E5FA210418893C8F00638647 /* SocketRocketClient.h in Headers */,
-				E59D15A518D38401006CFE49 /* SocketRocketWebSocket.h in Headers */,
-				E5682C9618B5175200F5D583 /* ParserProtocol.h in Headers */,
-				E51005BF1886BDD900A8F1F2 /* PrimusConnectOptions.h in Headers */,
-				E5FA210918893F1A00638647 /* Transformer.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
-/* Begin PBXNativeTarget section */
-		E5F94BD41885B5BD00170670 /* Primus */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E5F94BF91885B5BD00170670 /* Build configuration list for PBXNativeTarget "Primus" */;
-			buildPhases = (
-				145B70CB9989489F83D3E5F6 /* Check Pods Manifest.lock */,
-				E5F94BD11885B5BD00170670 /* Sources */,
-				E5F94BD21885B5BD00170670 /* Frameworks */,
-				E5F94BD31885B5BD00170670 /* Headers */,
-				1798CA78F56E4EBA874D7CF8 /* Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Primus;
-			productName = Primus;
-			productReference = E5F94BD51885B5BD00170670 /* Primus.dylib */;
-			productType = "com.apple.product-type.library.dynamic";
-		};
-		E5F94BE71885B5BD00170670 /* PrimusTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E5F94BFC1885B5BD00170670 /* Build configuration list for PBXNativeTarget "PrimusTests" */;
-			buildPhases = (
-				D2671190071A40E4A78F39FC /* Check Pods Manifest.lock */,
-				E5F94BE41885B5BD00170670 /* Sources */,
-				E5F94BE51885B5BD00170670 /* Frameworks */,
-				E5F94BE61885B5BD00170670 /* Resources */,
-				E5DEB03A18ABF44700EAC444 /* Headers */,
-				0EF646CBAF00439E835C9802 /* Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E5F94BED1885B5BD00170670 /* PBXTargetDependency */,
-			);
-			name = PrimusTests;
-			productName = PrimusTests;
-			productReference = E5F94BE81885B5BD00170670 /* PrimusTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		E5F94BCD1885B5BD00170670 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastUpgradeCheck = 0600;
-				ORGANIZATIONNAME = Seegno;
-				TargetAttributes = {
-					E5F94BE71885B5BD00170670 = {
-						TestTargetID = E5F94BD41885B5BD00170670;
-					};
-				};
-			};
-			buildConfigurationList = E5F94BD01885B5BD00170670 /* Build configuration list for PBXProject "Primus" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-			);
-			mainGroup = E5F94BCC1885B5BD00170670;
-			productRefGroup = E5F94BD61885B5BD00170670 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				E5F94BD41885B5BD00170670 /* Primus */,
-				E5F94BE71885B5BD00170670 /* PrimusTests */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		E5F94BE61885B5BD00170670 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E5DEB04818AD17A600EAC444 /* SocketRocketServerTest.js in Resources */,
-				E5DEB04A18AD4C4F00EAC444 /* SocketIOServerTest.js in Resources */,
-				E5DEB04718ACF83F00EAC444 /* node_modules in Resources */,
-				E5F94BF41885B5BD00170670 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		0EF646CBAF00439E835C9802 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		145B70CB9989489F83D3E5F6 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		1798CA78F56E4EBA874D7CF8 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-PrimusTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D2671190071A40E4A78F39FC /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		E5F94BD11885B5BD00170670 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E58795761886A94E00913F61 /* PrimusReconnectOptions.m in Sources */,
-				E58795751886A94C00913F61 /* PrimusTimers.m in Sources */,
-				E58795771886A95000913F61 /* PrimusTransformers.m in Sources */,
-				E5F94C0D1885B6C600170670 /* Primus.m in Sources */,
-				E51005C51887F38400A8F1F2 /* JSON.m in Sources */,
-				E5F94C041885B5E900170670 /* SocketIOClient.m in Sources */,
-				E59D15A618D38401006CFE49 /* SocketRocketWebSocket.m in Sources */,
-				E5FA210A18893F1A00638647 /* Transformer.m in Sources */,
-				E51005C01886BDD900A8F1F2 /* PrimusConnectOptions.m in Sources */,
-				E5FA210518893C8F00638647 /* SocketRocketClient.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E5F94BE41885B5BD00170670 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E5ECB59B18AA8A6900FC96F7 /* PrimusConnectOptionsTest.m in Sources */,
-				E5DEB03F18ABFC9C00EAC444 /* SocketIOClientTest.m in Sources */,
-				E5DEB03418AB90A500EAC444 /* SocketRocketClientTest.m in Sources */,
-				E5ECB59F18AAA69300FC96F7 /* PrimusTransformers.m in Sources */,
-				E5ECB59D18AA8E1700FC96F7 /* PrimusTimersTest.m in Sources */,
-				E5ECB5A618AAADB400FC96F7 /* JSONTest.m in Sources */,
-				E500D4DE18C0CD38001FE7CE /* MKTRequiredObjectAndProtocolMock.m in Sources */,
-				E5DEB03D18ABF47D00EAC444 /* TransformerBehaviorTest.m in Sources */,
-				E5ECB59918AA803700FC96F7 /* PrimusReconnectOptionsTest.m in Sources */,
-				E5F94BF61885B5BD00170670 /* PrimusTest.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		E5F94BED1885B5BD00170670 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E5F94BD41885B5BD00170670 /* Primus */;
-			targetProxy = E5F94BEC1885B5BD00170670 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		E5F94BF21885B5BD00170670 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E5F94BF31885B5BD00170670 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		E5F94BF71885B5BD00170670 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
-			};
-			name = Debug;
-		};
-		E5F94BF81885B5BD00170670 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				SDKROOT = macosx;
-			};
-			name = Release;
-		};
-		E5F94BFA1885B5BD00170670 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 74A248551C9F4EEF8E00F4EE /* Pods-PrimusTests.xcconfig */;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Primus/Primus-Prefix.pch";
-				PRODUCT_NAME = Primus;
-			};
-			name = Debug;
-		};
-		E5F94BFB1885B5BD00170670 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 74A248551C9F4EEF8E00F4EE /* Pods-PrimusTests.xcconfig */;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Primus/Primus-Prefix.pch";
-				PRODUCT_NAME = Primus;
-			};
-			name = Release;
-		};
-		E5F94BFD1885B5BD00170670 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7277FA3FA18740E789A9F58C /* Pods.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Primus.dylib";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-					"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/Library/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PrimusTests/PrimusTests-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "PrimusTests/PrimusTests-Info.plist";
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = PrimusTests;
-				SPECTA_REPORTER_CLASS = SPTXCTestReporter;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				VALID_ARCHS = "i386 x86_64";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		E5F94BFE1885B5BD00170670 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7277FA3FA18740E789A9F58C /* Pods.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Primus.dylib";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-					"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/Library/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PrimusTests/PrimusTests-Prefix.pch";
-				INFOPLIST_FILE = "PrimusTests/PrimusTests-Info.plist";
-				PRODUCT_NAME = PrimusTests;
-				SPECTA_REPORTER_CLASS = SPTXCTestReporter;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				VALID_ARCHS = "i386 x86_64";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		E5F94BD01885B5BD00170670 /* Build configuration list for PBXProject "Primus" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E5F94BF71885B5BD00170670 /* Debug */,
-				E5F94BF81885B5BD00170670 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E5F94BF91885B5BD00170670 /* Build configuration list for PBXNativeTarget "Primus" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E5F94BFA1885B5BD00170670 /* Debug */,
-				E5F94BFB1885B5BD00170670 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E5F94BFC1885B5BD00170670 /* Build configuration list for PBXNativeTarget "PrimusTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E5F94BFD1885B5BD00170670 /* Debug */,
-				E5F94BFE1885B5BD00170670 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = E5F94BCD1885B5BD00170670 /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>0E1F45BA2BF240B2BD7E88A6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>696217F923984D21B38AC44D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0EF646CBAF00439E835C9802</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-PrimusTests/Pods-PrimusTests-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>145B70CB9989489F83D3E5F6</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>14F311328B75767C093B3E90</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-PrimusTests.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-PrimusTests/Pods-PrimusTests.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>170661CC16F2A1912C19D4AC</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods/Pods.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1798CA78F56E4EBA874D7CF8</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>3FC2BAADD4F6FD65A4F3FA75</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>170661CC16F2A1912C19D4AC</string>
+				<string>6A66CC5EB7F2B9D3B2E4BAF2</string>
+				<string>B356B36C708AAEC169696873</string>
+				<string>14F311328B75767C093B3E90</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>642EDD6419C70EA9000DB6D6</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>XCTest.framework</string>
+			<key>path</key>
+			<string>Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>642EDD6519C70EA9000DB6D6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>642EDD6419C70EA9000DB6D6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>696217F923984D21B38AC44D</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods-PrimusTests.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>6A66CC5EB7F2B9D3B2E4BAF2</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods/Pods.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7B88A21B8E034D248EAEB977</key>
+		<dict>
+			<key>fileRef</key>
+			<string>CBC4DD3581504004B2A19645</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>B356B36C708AAEC169696873</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-PrimusTests.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-PrimusTests/Pods-PrimusTests.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>CBC4DD3581504004B2A19645</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>D2671190071A40E4A78F39FC</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>E500D4DA18C0CD1E001FE7CE</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>E500D4DB18C0CD38001FE7CE</string>
+				<string>E500D4DC18C0CD38001FE7CE</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Mock</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E500D4DB18C0CD38001FE7CE</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>MKTRequiredObjectAndProtocolMock.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E500D4DC18C0CD38001FE7CE</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>MKTRequiredObjectAndProtocolMock.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E500D4DD18C0CD38001FE7CE</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E500D4DB18C0CD38001FE7CE</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E500D4DE18C0CD38001FE7CE</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E500D4DC18C0CD38001FE7CE</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E51005BD1886BDD900A8F1F2</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PrimusConnectOptions.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E51005BE1886BDD900A8F1F2</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PrimusConnectOptions.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E51005BF1886BDD900A8F1F2</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E51005BD1886BDD900A8F1F2</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E51005C01886BDD900A8F1F2</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E51005BE1886BDD900A8F1F2</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E51005C11887F38400A8F1F2</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>E51005C21887F38400A8F1F2</string>
+				<string>E51005C31887F38400A8F1F2</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>JSON</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E51005C21887F38400A8F1F2</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>JSON.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E51005C31887F38400A8F1F2</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>JSON.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E51005C41887F38400A8F1F2</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E51005C21887F38400A8F1F2</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E51005C51887F38400A8F1F2</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E51005C31887F38400A8F1F2</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E5682C9418B5175200F5D583</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>ParserProtocol.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5682C9518B5175200F5D583</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>TransformerProtocol.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5682C9618B5175200F5D583</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E5682C9418B5175200F5D583</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E5682C9718B5175200F5D583</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E5682C9518B5175200F5D583</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E5682C9818B5176300F5D583</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PluginProtocol.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E58795691886A94300913F61</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>E587956A1886A94300913F61</string>
+				<string>E51005BD1886BDD900A8F1F2</string>
+				<string>E51005BE1886BDD900A8F1F2</string>
+				<string>E587956C1886A94300913F61</string>
+				<string>E587956D1886A94300913F61</string>
+				<string>E58795701886A94300913F61</string>
+				<string>E58795711886A94300913F61</string>
+				<string>E587956E1886A94300913F61</string>
+				<string>E587956F1886A94300913F61</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Core</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E587956A1886A94300913F61</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PrimusError.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E587956C1886A94300913F61</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PrimusReconnectOptions.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E587956D1886A94300913F61</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PrimusReconnectOptions.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E587956E1886A94300913F61</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PrimusTimers.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E587956F1886A94300913F61</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PrimusTimers.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E58795701886A94300913F61</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PrimusTransformers.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E58795711886A94300913F61</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PrimusTransformers.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E58795751886A94C00913F61</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E587956F1886A94300913F61</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E58795761886A94E00913F61</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E587956D1886A94300913F61</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E58795771886A95000913F61</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E58795711886A94300913F61</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E58C3F7B19869EDE00461CE7</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.json</string>
+			<key>path</key>
+			<string>Primus.podspec.json</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E59D15A318D38401006CFE49</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SocketRocketWebSocket.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E59D15A418D38401006CFE49</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>SocketRocketWebSocket.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E59D15A518D38401006CFE49</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E59D15A318D38401006CFE49</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E59D15A618D38401006CFE49</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E59D15A418D38401006CFE49</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E5DEB03318AB90A500EAC444</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>SocketRocketClientTest.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5DEB03418AB90A500EAC444</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E5DEB03318AB90A500EAC444</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E5DEB03A18ABF44700EAC444</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>E500D4DD18C0CD38001FE7CE</string>
+			</array>
+			<key>isa</key>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>E5DEB03C18ABF47D00EAC444</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>TransformerBehaviorTest.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5DEB03D18ABF47D00EAC444</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E5DEB03C18ABF47D00EAC444</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E5DEB03E18ABFC9C00EAC444</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>SocketIOClientTest.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5DEB03F18ABFC9C00EAC444</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E5DEB03E18ABFC9C00EAC444</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E5DEB04018ACE3A800EAC444</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.javascript</string>
+			<key>path</key>
+			<string>SocketRocketServerTest.js</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5DEB04218ACE5F200EAC444</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.json</string>
+			<key>path</key>
+			<string>package.json</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5DEB04618ACF82F00EAC444</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder</string>
+			<key>path</key>
+			<string>node_modules</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5DEB04718ACF83F00EAC444</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E5DEB04618ACF82F00EAC444</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E5DEB04818AD17A600EAC444</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E5DEB04018ACE3A800EAC444</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E5DEB04918AD4C4F00EAC444</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.javascript</string>
+			<key>path</key>
+			<string>SocketIOServerTest.js</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5DEB04A18AD4C4F00EAC444</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E5DEB04918AD4C4F00EAC444</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E5E5D7F3188D85F50014C4C0</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PrimusTests-Prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5ECB59718AA803700FC96F7</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>E5ECB59A18AA8A6900FC96F7</string>
+				<string>E5ECB59818AA803700FC96F7</string>
+				<string>E5ECB59E18AAA69300FC96F7</string>
+				<string>E5ECB59C18AA8E1700FC96F7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Core</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5ECB59818AA803700FC96F7</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PrimusReconnectOptionsTest.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5ECB59918AA803700FC96F7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E5ECB59818AA803700FC96F7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E5ECB59A18AA8A6900FC96F7</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PrimusConnectOptionsTest.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5ECB59B18AA8A6900FC96F7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E5ECB59A18AA8A6900FC96F7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E5ECB59C18AA8E1700FC96F7</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PrimusTimersTest.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5ECB59D18AA8E1700FC96F7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E5ECB59C18AA8E1700FC96F7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E5ECB59E18AAA69300FC96F7</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PrimusTransformers.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5ECB59F18AAA69300FC96F7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E5ECB59E18AAA69300FC96F7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E5ECB5A018AAAD7B00FC96F7</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>E5ECB5A118AAAD7B00FC96F7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Parsers</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5ECB5A118AAAD7B00FC96F7</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>E5ECB5A518AAADB400FC96F7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>JSON</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5ECB5A218AAAD9B00FC96F7</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>E5ECB5A418AAAD9B00FC96F7</string>
+				<string>E5ECB5A318AAAD9B00FC96F7</string>
+				<string>E5DEB03C18ABF47D00EAC444</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Transformers</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5ECB5A318AAAD9B00FC96F7</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>E5DEB03E18ABFC9C00EAC444</string>
+				<string>E5DEB04918AD4C4F00EAC444</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>socket.IO</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5ECB5A418AAAD9B00FC96F7</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>E5DEB03318AB90A500EAC444</string>
+				<string>E5DEB04018ACE3A800EAC444</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>SocketRocket</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5ECB5A518AAADB400FC96F7</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>JSONTest.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5ECB5A618AAADB400FC96F7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E5ECB5A518AAADB400FC96F7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E5F94BCC1885B5BD00170670</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>E5F94BDE1885B5BD00170670</string>
+				<string>E5F94BEF1885B5BD00170670</string>
+				<string>E5F94BD71885B5BD00170670</string>
+				<string>E5F94BD61885B5BD00170670</string>
+				<string>E5DEB04618ACF82F00EAC444</string>
+				<string>E58C3F7B19869EDE00461CE7</string>
+				<string>E5DEB04218ACE5F200EAC444</string>
+				<string>3FC2BAADD4F6FD65A4F3FA75</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5F94BCD1885B5BD00170670</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastUpgradeCheck</key>
+				<string>0600</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>Seegno</string>
+				<key>TargetAttributes</key>
+				<dict>
+					<key>E5F94BE71885B5BD00170670</key>
+					<dict>
+						<key>TestTargetID</key>
+						<string>E5F94BD41885B5BD00170670</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>E5F94BD01885B5BD00170670</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+			</array>
+			<key>mainGroup</key>
+			<string>E5F94BCC1885B5BD00170670</string>
+			<key>productRefGroup</key>
+			<string>E5F94BD61885B5BD00170670</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>E5F94BD41885B5BD00170670</string>
+				<string>E5F94BE71885B5BD00170670</string>
+			</array>
+		</dict>
+		<key>E5F94BD01885B5BD00170670</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>E5F94BF71885B5BD00170670</string>
+				<string>E5F94BF81885B5BD00170670</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>E5F94BD11885B5BD00170670</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>E58795761886A94E00913F61</string>
+				<string>E58795751886A94C00913F61</string>
+				<string>E58795771886A95000913F61</string>
+				<string>E5F94C0D1885B6C600170670</string>
+				<string>E51005C51887F38400A8F1F2</string>
+				<string>E5F94C041885B5E900170670</string>
+				<string>E59D15A618D38401006CFE49</string>
+				<string>E5FA210A18893F1A00638647</string>
+				<string>E51005C01886BDD900A8F1F2</string>
+				<string>E5FA210518893C8F00638647</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>E5F94BD21885B5BD00170670</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>E5F94BD91885B5BD00170670</string>
+				<string>7B88A21B8E034D248EAEB977</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>E5F94BD31885B5BD00170670</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>E5682C9718B5175200F5D583</string>
+				<string>E51005C41887F38400A8F1F2</string>
+				<string>E5F94C031885B5E900170670</string>
+				<string>E5F94C0C1885B6C600170670</string>
+				<string>E5FA210418893C8F00638647</string>
+				<string>E59D15A518D38401006CFE49</string>
+				<string>E5682C9618B5175200F5D583</string>
+				<string>E51005BF1886BDD900A8F1F2</string>
+				<string>E5FA210918893F1A00638647</string>
+			</array>
+			<key>isa</key>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>E5F94BD41885B5BD00170670</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>E5F94BF91885B5BD00170670</string>
+			<key>buildPhases</key>
+			<array>
+				<string>145B70CB9989489F83D3E5F6</string>
+				<string>E5F94BD11885B5BD00170670</string>
+				<string>E5F94BD21885B5BD00170670</string>
+				<string>E5F94BD31885B5BD00170670</string>
+				<string>1798CA78F56E4EBA874D7CF8</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Primus</string>
+			<key>productName</key>
+			<string>Primus</string>
+			<key>productReference</key>
+			<string>E5F94BD51885B5BD00170670</string>
+			<key>productType</key>
+			<string>com.apple.product-type.library.dynamic</string>
+		</dict>
+		<key>E5F94BD51885B5BD00170670</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>compiled.mach-o.dylib</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Primus.dylib</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>E5F94BD61885B5BD00170670</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>E5F94BD51885B5BD00170670</string>
+				<string>E5F94BE81885B5BD00170670</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5F94BD71885B5BD00170670</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>E5F94BDB1885B5BD00170670</string>
+				<string>E5F94BDC1885B5BD00170670</string>
+				<string>E5F94BDD1885B5BD00170670</string>
+				<string>642EDD6419C70EA9000DB6D6</string>
+				<string>E5F94BD81885B5BD00170670</string>
+				<string>CBC4DD3581504004B2A19645</string>
+				<string>696217F923984D21B38AC44D</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5F94BD81885B5BD00170670</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Cocoa.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/Cocoa.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>E5F94BD91885B5BD00170670</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E5F94BD81885B5BD00170670</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E5F94BDB1885B5BD00170670</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Foundation.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/Foundation.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>E5F94BDC1885B5BD00170670</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>CoreData.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/CoreData.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>E5F94BDD1885B5BD00170670</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>AppKit.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/AppKit.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>E5F94BDE1885B5BD00170670</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>E5F94BDF1885B5BD00170670</string>
+				<string>E58795691886A94300913F61</string>
+				<string>E5F94C071885B5FE00170670</string>
+				<string>E5F94BFF1885B5E900170670</string>
+				<string>E5682C9418B5175200F5D583</string>
+				<string>E5682C9518B5175200F5D583</string>
+				<string>E5682C9818B5176300F5D583</string>
+				<string>E5FA210618893DFE00638647</string>
+				<string>E5F94C0A1885B6C600170670</string>
+				<string>E5F94C0B1885B6C600170670</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Primus</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5F94BDF1885B5BD00170670</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>E5F94BE01885B5BD00170670</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5F94BE01885B5BD00170670</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Primus-Prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5F94BE41885B5BD00170670</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>E5ECB59B18AA8A6900FC96F7</string>
+				<string>E5DEB03F18ABFC9C00EAC444</string>
+				<string>E5DEB03418AB90A500EAC444</string>
+				<string>E5ECB59F18AAA69300FC96F7</string>
+				<string>E5ECB59D18AA8E1700FC96F7</string>
+				<string>E5ECB5A618AAADB400FC96F7</string>
+				<string>E500D4DE18C0CD38001FE7CE</string>
+				<string>E5DEB03D18ABF47D00EAC444</string>
+				<string>E5ECB59918AA803700FC96F7</string>
+				<string>E5F94BF61885B5BD00170670</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>E5F94BE51885B5BD00170670</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>642EDD6519C70EA9000DB6D6</string>
+				<string>E5F94BEB1885B5BD00170670</string>
+				<string>E5F94BEE1885B5BD00170670</string>
+				<string>0E1F45BA2BF240B2BD7E88A6</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>E5F94BE61885B5BD00170670</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>E5DEB04818AD17A600EAC444</string>
+				<string>E5DEB04A18AD4C4F00EAC444</string>
+				<string>E5DEB04718ACF83F00EAC444</string>
+				<string>E5F94BF41885B5BD00170670</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>E5F94BE71885B5BD00170670</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>E5F94BFC1885B5BD00170670</string>
+			<key>buildPhases</key>
+			<array>
+				<string>D2671190071A40E4A78F39FC</string>
+				<string>E5F94BE41885B5BD00170670</string>
+				<string>E5F94BE51885B5BD00170670</string>
+				<string>E5F94BE61885B5BD00170670</string>
+				<string>E5DEB03A18ABF44700EAC444</string>
+				<string>0EF646CBAF00439E835C9802</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>E5F94BED1885B5BD00170670</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>PrimusTests</string>
+			<key>productName</key>
+			<string>PrimusTests</string>
+			<key>productReference</key>
+			<string>E5F94BE81885B5BD00170670</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.unit-test</string>
+		</dict>
+		<key>E5F94BE81885B5BD00170670</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>PrimusTests.xctest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>E5F94BEB1885B5BD00170670</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E5F94BD81885B5BD00170670</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E5F94BEC1885B5BD00170670</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>E5F94BCD1885B5BD00170670</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>E5F94BD41885B5BD00170670</string>
+			<key>remoteInfo</key>
+			<string>Primus</string>
+		</dict>
+		<key>E5F94BED1885B5BD00170670</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>E5F94BD41885B5BD00170670</string>
+			<key>targetProxy</key>
+			<string>E5F94BEC1885B5BD00170670</string>
+		</dict>
+		<key>E5F94BEE1885B5BD00170670</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E5F94BD51885B5BD00170670</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E5F94BEF1885B5BD00170670</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>E5F94BF01885B5BD00170670</string>
+				<string>E500D4DA18C0CD1E001FE7CE</string>
+				<string>E5ECB59718AA803700FC96F7</string>
+				<string>E5ECB5A018AAAD7B00FC96F7</string>
+				<string>E5ECB5A218AAAD9B00FC96F7</string>
+				<string>E5F94BF51885B5BD00170670</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>PrimusTests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5F94BF01885B5BD00170670</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>E5E5D7F3188D85F50014C4C0</string>
+				<string>E5F94BF11885B5BD00170670</string>
+				<string>E5F94BF21885B5BD00170670</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5F94BF11885B5BD00170670</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>PrimusTests-Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5F94BF21885B5BD00170670</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>E5F94BF31885B5BD00170670</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5F94BF31885B5BD00170670</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.strings</string>
+			<key>name</key>
+			<string>en</string>
+			<key>path</key>
+			<string>en.lproj/InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5F94BF41885B5BD00170670</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E5F94BF21885B5BD00170670</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E5F94BF51885B5BD00170670</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PrimusTest.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5F94BF61885B5BD00170670</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E5F94BF51885B5BD00170670</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E5F94BF71885B5BD00170670</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_ENABLE_OBJC_EXCEPTIONS</key>
+				<string>YES</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>MACOSX_DEPLOYMENT_TARGET</key>
+				<string>10.9</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>macosx</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>E5F94BF81885B5BD00170670</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf-with-dsym</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_ENABLE_OBJC_EXCEPTIONS</key>
+				<string>YES</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>MACOSX_DEPLOYMENT_TARGET</key>
+				<string>10.9</string>
+				<key>SDKROOT</key>
+				<string>macosx</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>E5F94BF91885B5BD00170670</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>E5F94BFA1885B5BD00170670</string>
+				<string>E5F94BFB1885B5BD00170670</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>E5F94BFA1885B5BD00170670</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>170661CC16F2A1912C19D4AC</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>COMBINE_HIDPI_IMAGES</key>
+				<string>YES</string>
+				<key>DYLIB_COMPATIBILITY_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_CURRENT_VERSION</key>
+				<string>1</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(PLATFORM_DIR)/Developer/Library/Frameworks</string>
+					<string>$(DEVELOPER_LIBRARY_DIR)/Frameworks</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Primus/Primus-Prefix.pch</string>
+				<key>PRODUCT_NAME</key>
+				<string>Primus</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>E5F94BFB1885B5BD00170670</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>6A66CC5EB7F2B9D3B2E4BAF2</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>COMBINE_HIDPI_IMAGES</key>
+				<string>YES</string>
+				<key>DYLIB_COMPATIBILITY_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_CURRENT_VERSION</key>
+				<string>1</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(PLATFORM_DIR)/Developer/Library/Frameworks</string>
+					<string>$(DEVELOPER_LIBRARY_DIR)/Frameworks</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Primus/Primus-Prefix.pch</string>
+				<key>PRODUCT_NAME</key>
+				<string>Primus</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>E5F94BFC1885B5BD00170670</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>E5F94BFD1885B5BD00170670</string>
+				<string>E5F94BFE1885B5BD00170670</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>E5F94BFD1885B5BD00170670</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>B356B36C708AAEC169696873</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(BUILT_PRODUCTS_DIR)/Primus.dylib</string>
+				<key>COMBINE_HIDPI_IMAGES</key>
+				<string>YES</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(PLATFORM_DIR)/Developer/Library/Frameworks</string>
+					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
+					<string>$(inherited)</string>
+					<string>$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/Library/Frameworks</string>
+				</array>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>PrimusTests/PrimusTests-Prefix.pch</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>INFOPLIST_FILE</key>
+				<string>PrimusTests/PrimusTests-Info.plist</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>PRODUCT_NAME</key>
+				<string>PrimusTests</string>
+				<key>SPECTA_REPORTER_CLASS</key>
+				<string>SPTXCTestReporter</string>
+				<key>TEST_HOST</key>
+				<string>$(BUNDLE_LOADER)</string>
+				<key>VALID_ARCHS</key>
+				<string>i386 x86_64</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>xctest</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>E5F94BFE1885B5BD00170670</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>14F311328B75767C093B3E90</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(BUILT_PRODUCTS_DIR)/Primus.dylib</string>
+				<key>COMBINE_HIDPI_IMAGES</key>
+				<string>YES</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(PLATFORM_DIR)/Developer/Library/Frameworks</string>
+					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
+					<string>$(inherited)</string>
+					<string>$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/Library/Frameworks</string>
+				</array>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>PrimusTests/PrimusTests-Prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>PrimusTests/PrimusTests-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>PrimusTests</string>
+				<key>SPECTA_REPORTER_CLASS</key>
+				<string>SPTXCTestReporter</string>
+				<key>TEST_HOST</key>
+				<string>$(BUNDLE_LOADER)</string>
+				<key>VALID_ARCHS</key>
+				<string>i386 x86_64</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>xctest</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>E5F94BFF1885B5E900170670</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>E5FA210118893C8100638647</string>
+				<string>E5F94C001885B5E900170670</string>
+				<string>E5FA210718893F1A00638647</string>
+				<string>E5FA210818893F1A00638647</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Transformers</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5F94C001885B5E900170670</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>E5F94C011885B5E900170670</string>
+				<string>E5F94C021885B5E900170670</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>socket.IO</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5F94C011885B5E900170670</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SocketIOClient.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5F94C021885B5E900170670</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>SocketIOClient.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5F94C031885B5E900170670</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E5F94C011885B5E900170670</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E5F94C041885B5E900170670</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E5F94C021885B5E900170670</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E5F94C071885B5FE00170670</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>E51005C11887F38400A8F1F2</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Parsers</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5F94C0A1885B6C600170670</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Primus.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5F94C0B1885B6C600170670</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>Primus.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5F94C0C1885B6C600170670</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E5F94C0A1885B6C600170670</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E5F94C0D1885B6C600170670</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E5F94C0B1885B6C600170670</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E5FA210118893C8100638647</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>E5FA210218893C8F00638647</string>
+				<string>E5FA210318893C8F00638647</string>
+				<string>E59D15A318D38401006CFE49</string>
+				<string>E59D15A418D38401006CFE49</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>SocketRocket</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5FA210218893C8F00638647</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SocketRocketClient.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5FA210318893C8F00638647</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>SocketRocketClient.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5FA210418893C8F00638647</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E5FA210218893C8F00638647</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E5FA210518893C8F00638647</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E5FA210318893C8F00638647</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E5FA210618893DFE00638647</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>PrimusProtocol.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5FA210718893F1A00638647</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Transformer.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5FA210818893F1A00638647</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>Transformer.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5FA210918893F1A00638647</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E5FA210718893F1A00638647</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E5FA210A18893F1A00638647</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E5FA210818893F1A00638647</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>E5F94BCD1885B5BD00170670</string>
+</dict>
+</plist>

@@ -1,6 +1,6 @@
 {
   "name": "Primus",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "summary": "Easily switch between different real-time Objective-C frameworks without any code changes.",
   "homepage": "https://github.com/seegno/primus-objc",
   "authors": {
@@ -12,7 +12,7 @@
   },
   "source": {
     "git": "https://github.com/seegno/primus-objc.git",
-    "tag": "0.0.4"
+    "tag": "0.0.5"
   },
   "source_files": [
     "Primus/*.{h,m}",
