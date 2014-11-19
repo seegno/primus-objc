@@ -15,6 +15,8 @@
 
 #import "Primus.h"
 
+NSTimeInterval const kBackgroundFetchIntervalMinimum = 600;
+
 @implementation Primus
 
 @synthesize request = _request;
@@ -241,13 +243,28 @@
         }
 
         // Send a keep-alive ping every 10 minutes while in background
-        [UIApplication.sharedApplication setKeepAliveTimeout:600 handler:^{
+        [UIApplication.sharedApplication setKeepAliveTimeout:kBackgroundFetchIntervalMinimum handler:^{
             [self ping];
         }];
     }];
 
     [NSNotificationCenter.defaultCenter addObserverForName:UIApplicationDidBecomeActiveNotification object:nil queue:NSOperationQueue.mainQueue usingBlock:^(NSNotification *note) {
-        [UIApplication.sharedApplication clearKeepAliveTimeout];
+        // Clear the keep-alive ping after resuming from background
+        if (YES == self.options.stayConnectedInBackground) {
+            [UIApplication.sharedApplication clearKeepAliveTimeout];
+
+            return;
+        }
+
+        // Do not reconnect if the connection was previously closed
+        if (kPrimusReadyStateOpen != self.readyState) {
+            return;
+        }
+
+        // Reconnect to the server after resuming from background
+        if ([self.options.reconnect.strategies containsObject:@(kPrimusReconnectionStrategyOnline)]) {
+            [self reconnect];
+        }
     }];
 #endif
 }
@@ -279,6 +296,11 @@
         NSTimeInterval timeout = ((NSNumber *)spec[@"timeout"]).doubleValue - 10e3;
 
         self.options.ping = MAX(MIN(self.options.ping, timeout / 1000.0f), 0);
+    }
+
+    // If the calculated ping is smaller than the minimum allowed interval, disable background.
+    if (self.options.ping < kBackgroundFetchIntervalMinimum) {
+        self.options.stayConnectedInBackground = NO;
     }
 
     // If there is no parser set, use JSON as default
@@ -510,6 +532,14 @@
  */
 - (void)backoff:(PrimusReconnectCallback)callback options:(PrimusReconnectOptions *)options
 {
+#if __has_include(<UIKit/UIKit.h>)
+    BOOL isInactive = UIApplication.sharedApplication.applicationState != UIApplicationStateActive;
+
+    if (isInactive && !self.options.stayConnectedInBackground) {
+        return;
+    }
+#endif
+
     if (options.backoff) {
         return;
     }
