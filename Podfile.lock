@@ -25,8 +25,8 @@ DEPENDENCIES:
   - libextobjc/EXTScope
   - OCMockito
   - Reachability
-  - socket.IO
-  - SocketRocket
+  - socket.IO (= 0.5.2)
+  - SocketRocket (= 0.3.1-beta2)
   - Specta
 
 SPEC CHECKSUMS:
@@ -43,4 +43,4 @@ SPEC CHECKSUMS:
   Specta: 9141310f46b1f68b676650ff2854e1ed0b74163a
   TPWeakProxy: da4177b6ae5eff685642c1cd9698f71ef7060ea5
 
-COCOAPODS: 0.34.4
+COCOAPODS: 0.35.0
