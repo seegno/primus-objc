@@ -32,6 +32,8 @@
     [_primus removeListener:@"outgoing::data" selector:@selector(onOutgoingData:) target:self];
     [_primus removeListener:@"outgoing::reconnect" selector:@selector(onOutgoingReconnect) target:self];
     [_primus removeListener:@"outgoing::end" selector:@selector(onOutgoingEnd) target:self];
+
+    _socket = nil;
 }
 
 #pragma mark - Event listeners
@@ -86,7 +88,6 @@
     }
 
     [_socket disconnect];
-    _socket = nil;
 }
 
 #pragma mark - Transformer methods
@@ -100,31 +101,55 @@
 
 - (void)socketIODidConnect:(SocketIO *)socket
 {
+    if (_socket != socket) {
+        return;
+    }
+
     [_primus emit:@"incoming::open"];
 }
 
 - (void)socketIODidDisconnect:(SocketIO *)socket disconnectedWithError:(NSError *)error
 {
+    if (_socket != socket) {
+        return;
+    }
+
     [_primus emit:@"incoming::end", nil];
 }
 
 - (void)socketIO:(SocketIO *)socket didReceiveEvent:(SocketIOPacket *)packet
 {
+    if (_socket != socket) {
+        return;
+    }
+
     [_primus emit:@"incoming::data", packet.data];
 }
 
 - (void)socketIO:(SocketIO *)socket didReceiveJSON:(SocketIOPacket *)packet
 {
+    if (_socket != socket) {
+        return;
+    }
+
     [_primus emit:@"incoming::data", packet.data];
 }
 
 - (void)socketIO:(SocketIO *)socket didReceiveMessage:(SocketIOPacket *)packet
 {
+    if (_socket != socket) {
+        return;
+    }
+
     [_primus emit:@"incoming::data", packet.data];
 }
 
 - (void)socketIO:(SocketIO *)socket onError:(NSError *)error
 {
+    if (_socket != socket) {
+        return;
+    }
+
     [_primus emit:@"incoming::error", error];
 }
 

@@ -48,6 +48,8 @@ typedef NS_ENUM(NSInteger, SocketRocketErrorCode) {
     [_primus removeListener:@"outgoing::data" selector:@selector(onOutgoingData:) target:self];
     [_primus removeListener:@"outgoing::reconnect" selector:@selector(onOutgoingReconnect) target:self];
     [_primus removeListener:@"outgoing::end" selector:@selector(onOutgoingEnd) target:self];
+
+    _socket = nil;
 }
 
 #pragma mark - Event listeners
@@ -98,28 +100,43 @@ typedef NS_ENUM(NSInteger, SocketRocketErrorCode) {
     }
 
     [_socket closeWithCode:kSocketRocketErrorCodeNormal reason:nil];
-    _socket = nil;
 }
 
 #pragma mark - SRWebSocketDelegate
 
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket
 {
+    if (_socket != webSocket) {
+        return;
+    }
+
     [_primus emit:@"incoming::open"];
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean
 {
+    if (_socket != webSocket) {
+        return;
+    }
+
     [_primus emit:@"incoming::end", reason];
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message
 {
+    if (_socket != webSocket) {
+        return;
+    }
+
     [_primus emit:@"incoming::data", message];
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error
 {
+    if (_socket != webSocket) {
+        return;
+    }
+
     [_primus emit:@"incoming::error", error];
 }
 
