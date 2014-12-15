@@ -14,7 +14,8 @@
 {
     return [self initWithStrategy:@[
         @(kPrimusReconnectionStrategyOnline),
-        @(kPrimusReconnectionStrategyDisconnect)
+        @(kPrimusReconnectionStrategyDisconnect),
+        @(kPrimusReconnectionStrategyTimeout)
     ]];
 }
 
