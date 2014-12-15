@@ -257,13 +257,13 @@ NSTimeInterval const kBackgroundFetchIntervalMinimum = 600;
         }
 
         // Do not reconnect if the connection was previously closed
-        if (kPrimusReadyStateOpen != self.readyState) {
+        if (!self.online) {
             return;
         }
 
         // Reconnect to the server after resuming from background
         if ([self.options.reconnect.strategies containsObject:@(kPrimusReconnectionStrategyOnline)]) {
-            [self reconnect];
+            [self ping];
         }
     }];
 #endif
@@ -532,14 +532,6 @@ NSTimeInterval const kBackgroundFetchIntervalMinimum = 600;
  */
 - (void)backoff:(PrimusReconnectCallback)callback options:(PrimusReconnectOptions *)options
 {
-#if __has_include(<UIKit/UIKit.h>)
-    BOOL isInactive = UIApplication.sharedApplication.applicationState != UIApplicationStateActive;
-
-    if (isInactive && !self.options.stayConnectedInBackground) {
-        return;
-    }
-#endif
-
     if (options.backoff) {
         return;
     }

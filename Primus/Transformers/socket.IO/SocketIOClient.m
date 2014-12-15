@@ -151,6 +151,10 @@
     }
 
     [_primus emit:@"incoming::error", error];
+
+    if (!_socket.isConnected) {
+        [_primus emit:@"incoming::end", nil];
+    }
 }
 
 @end

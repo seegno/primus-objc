@@ -138,6 +138,10 @@ typedef NS_ENUM(NSInteger, SocketRocketErrorCode) {
     }
 
     [_primus emit:@"incoming::error", error];
+
+    if (SR_OPEN != _socket.readyState) {
+        [_primus emit:@"incoming::end", nil];
+    }
 }
 
 - (void)setStayConnectedInBackground:(BOOL)stayConnectedInBackground
