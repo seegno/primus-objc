@@ -19,6 +19,7 @@
             raw = [NSString stringWithFormat:@"\"%@\"", raw];
         } else {
             raw = [NSJSONSerialization dataWithJSONObject:raw options:0 error:&error];
+            raw = [[NSString alloc] initWithData:raw encoding:NSUTF8StringEncoding];
         }
     }
     @catch (NSException *exception) {

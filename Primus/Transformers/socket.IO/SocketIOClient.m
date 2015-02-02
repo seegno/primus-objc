@@ -65,7 +65,7 @@
     }
 
     @try {
-        [_socket sendMessage:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
+        [_socket sendMessage:data];
     }
     @catch (NSException *exception) {
         [_primus emit:@"incoming::error", exception];

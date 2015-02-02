@@ -18,11 +18,9 @@ describe(@"JSON", ^{
     });
 
     it(@"encodes raw data", ^AsyncBlock {
-        [serializer encode:@{ @"key": @"value" } callback:^(NSError *error, id data) {
-            NSString *jsonData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-
+        [serializer encode:@{ @"key": @"value" } callback:^(NSError *error, NSString *data) {
             expect(error).to.beNil();
-            expect(jsonData).to.equal(@"{\"key\":\"value\"}");
+            expect(data).to.equal(@"{\"key\":\"value\"}");
 
             done();
         }];
