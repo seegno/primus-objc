@@ -185,9 +185,9 @@ NSTimeInterval const kBackgroundFetchIntervalMinimum = 600;
 
         _readyState = kPrimusReadyStateClosed;
 
-        [_timers clearAll];
-
         if ([intentional isEqualToString:@"primus::server::close"]) {
+            [_timers clearAll];
+
             return [self emit:@"end"];
         }
 
@@ -195,6 +195,8 @@ NSTimeInterval const kBackgroundFetchIntervalMinimum = 600;
 
         if ([self.options.reconnect.strategies containsObject:@(kPrimusReconnectionStrategyDisconnect)]) {
             [self reconnect];
+        } else {
+            [_timers clearAll];
         }
     }];
 }
