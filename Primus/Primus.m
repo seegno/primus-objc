@@ -185,9 +185,9 @@ NSTimeInterval const kBackgroundFetchIntervalMinimum = 600;
 
         _readyState = kPrimusReadyStateClosed;
 
-
         if ([intentional isEqualToString:@"primus::server::close"]) {
             [_timers clearAll];
+
             return [self emit:@"end"];
         }
 

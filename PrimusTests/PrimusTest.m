@@ -197,7 +197,15 @@ describe(@"Primus", ^{
     });
 
     it(@"should reconnect when the connection closes unexpectedly", ^AsyncBlock {
+        PrimusTimers *timers = mock([PrimusTimers class]);
+
+        [primus setValue:timers forKey:@"_timers"];
+
         [primus on:@"reconnect" listener:^(PrimusReconnectOptions *options) {
+            [verifyCount(timers, never()) clearAll];
+
+            NSLog(@"timers: %@", timers.reconnect);
+
             done();
         }];
 
