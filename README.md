@@ -48,7 +48,7 @@ Since we haven't specified a transformer, Primus will connect to then `/spec` [e
 
 - (void)start
 {
-    NSURL *url = [NSURL urlWithString:@"http://localhost:9090/primus"];
+    NSURL *url = [NSURL URLWithString:@"http://localhost:9090/primus"];
 
     Primus *primus = [[Primus alloc] initWithURL:url];
 
