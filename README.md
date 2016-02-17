@@ -242,7 +242,7 @@ pod install
 npm install
 ```
 
-You can then open the project with XCode and choose Product → Test (⌘U).
+You can then open the project with Xcode and choose Product → Test (⌘U).
 
 ## License
 
