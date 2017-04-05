@@ -32,9 +32,8 @@
     if (self) {
         _reconnect = [[PrimusReconnectOptions alloc] init];
         _strategy = strategy ?: [NSArray array];
-        _timeout = 10;
-        _ping = 25;
-        _pong = 10;
+        _pingTimeout = 45;
+        _pingInterval = 30;
         _autodetect = YES;
         _manual = NO;
         _stayConnectedInBackground = [[NSBundle.mainBundle objectForInfoDictionaryKey:@"UIBackgroundModes"] containsObject:@"voip"];
@@ -49,7 +48,7 @@
 
         // Set the ping time to 10 minutes and 25 seconds
         if (_stayConnectedInBackground) {
-            _ping = 625;
+            _pingTimeout = 625;
         }
     }
 

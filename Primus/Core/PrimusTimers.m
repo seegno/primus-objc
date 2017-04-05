@@ -13,8 +13,7 @@
 - (void)invalidateAll
 {
     [self.open invalidate];
-    [self.ping invalidate];
-    [self.pong invalidate];
+    [self.heartbeat invalidate];
     [self.connect invalidate];
     [self.reconnect invalidate];
 }
@@ -24,8 +23,7 @@
     [self invalidateAll];
 
     self.open = nil;
-    self.ping = nil;
-    self.pong = nil;
+    self.heartbeat = nil;
     self.connect = nil;
     self.reconnect = nil;
 }
