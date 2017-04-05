@@ -11,8 +11,7 @@
 @interface PrimusTimers : NSObject
 
 @property (nonatomic) GCDTimer *open;
-@property (nonatomic) GCDTimer *ping;
-@property (nonatomic) GCDTimer *pong;
+@property (nonatomic) GCDTimer *heartbeat;
 @property (nonatomic) GCDTimer *connect;
 @property (nonatomic) GCDTimer *reconnect;
 

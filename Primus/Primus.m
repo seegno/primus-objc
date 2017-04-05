@@ -96,12 +96,6 @@ NSTimeInterval const kBackgroundFetchIntervalMinimum = 600;
 
         _attemptOptions = nil;
 
-        [_timers.ping invalidate];
-        _timers.ping = nil;
-
-        [_timers.pong invalidate];
-        _timers.pong = nil;
-
         [self emit:@"open"];
 
         [self startHeartbeat];
@@ -115,13 +109,14 @@ NSTimeInterval const kBackgroundFetchIntervalMinimum = 600;
         }
     }];
 
-    [self on:@"incoming::pong" listener:^(NSNumber *time) {
+    [self on:@"incoming::ping" listener:^(NSNumber *time) {
         _online = YES;
 
-        [_timers.pong invalidate];
-        _timers.pong = nil;
-
         [self startHeartbeat];
+        
+        [self emit:@"outgoing::pong", time];
+        
+        [self write:[NSString stringWithFormat:@"primus::pong::%li", [time integerValue]]];
     }];
 
     [self on:@"incoming::error" listener:^(NSError *error) {
@@ -151,8 +146,8 @@ NSTimeInterval const kBackgroundFetchIntervalMinimum = 600;
                     return [self end];
                 }
 
-                if ([data hasPrefix:@"primus::pong::"]) {
-                    return [self emit:@"incoming::pong", [data substringFromIndex:14]];
+                if ([data hasPrefix:@"primus::ping::"]) {
+                    return [self emit:@"incoming::ping", [data substringFromIndex:14]];
                 }
 
                 if ([data hasPrefix:@"primus::id::"]) {
@@ -246,7 +241,7 @@ NSTimeInterval const kBackgroundFetchIntervalMinimum = 600;
 
         // Send a keep-alive ping every 10 minutes while in background
         [UIApplication.sharedApplication setKeepAliveTimeout:kBackgroundFetchIntervalMinimum handler:^{
-            [self ping];
+            [self startHeartbeat];
         }];
     }];
 
@@ -265,7 +260,7 @@ NSTimeInterval const kBackgroundFetchIntervalMinimum = 600;
 
         // Reconnect to the server after resuming from background
         if ([self.options.reconnect.strategies containsObject:@(kPrimusReconnectionStrategyOnline)]) {
-            [self ping];
+            [self startHeartbeat];
         }
     }];
 #endif
@@ -292,16 +287,21 @@ NSTimeInterval const kBackgroundFetchIntervalMinimum = 600;
         if (!parserClass) {
             parserClass = NSClassFromString([spec[@"parser"] uppercaseString]);
         }
-
-        // Subtract 10 seconds from the maximum server-side timeout, as per the
-        // official Primus server-side documentation.
-        NSTimeInterval timeout = ((NSNumber *)spec[@"timeout"]).doubleValue - 10e3;
-
-        self.options.ping = MAX(MIN(self.options.ping, timeout / 1000.0f), 0);
+        
+        // As we're given a timeout value on the server side, we need to update the		 +  // As we're given a `pingInterval` value on the server side, we need to update
+        // the `pingTimeout` on the client.
+       
+        if (self.options.pingInterval) {
+            NSTimeInterval value = self.options.pingInterval + round(self.options.pingInterval / 2);
+            
+            self.options.pingTimeout = value;
+        } else {
+            self.options.pingTimeout = 45;
+        }
     }
 
     // If the calculated ping is smaller than the minimum allowed interval, disable background.
-    if (self.options.ping < kBackgroundFetchIntervalMinimum) {
+    if (self.options.pingTimeout < kBackgroundFetchIntervalMinimum) {
         self.options.stayConnectedInBackground = NO;
     }
 
@@ -449,47 +449,26 @@ NSTimeInterval const kBackgroundFetchIntervalMinimum = 600;
     [self once:@"incoming::id" listener:fn];
 }
 
-- (void)pong
-{
-    [_timers.pong invalidate];
-    _timers.pong = nil;
-
-    if (self.online) {
-        return;
-    }
-
-    _online = NO;
-
-    [self emit:@"offline"];
-    [self emit:@"incoming::end", nil];
-}
-
-- (void)ping
-{
-    [_timers.ping invalidate];
-    _timers.ping = nil;
-
-    [self write:[NSString stringWithFormat:@"primus::ping::%f", [[NSDate date] timeIntervalSince1970]]];
-    [self emit:@"outgoing::ping"];
-
-    _timers.pong = [GCDTimer scheduledTimerWithTimeInterval:self.options.pong repeats:NO block:^{
-        [self pong];
-    }];
-}
-
 /**
- * Send a new heartbeat over the connection to ensure that we're still
- * connected and our internet connection didn't drop. We cannot use server side
- * heartbeats for this unfortunately.
+ * Set a timer that, upon expiration, closes the client.
  */
 - (void)startHeartbeat
 {
-    if (! self.options.ping) {
+    if (! self.options.pingTimeout) {
         return;
     }
 
-    _timers.ping = [GCDTimer scheduledTimerWithTimeInterval:self.options.ping repeats:NO block:^{
-        [self ping];
+    [_timers.heartbeat invalidate];
+    _timers.heartbeat = nil;
+    
+    _timers.heartbeat = [GCDTimer scheduledTimerWithTimeInterval:self.options.pingTimeout repeats:NO block:^{
+        if (!self.online) {
+            return;
+        }
+        
+        _online = NO;
+        [self emit:@"offline"];
+        [self emit:@"incoming::end", @"Heartbeat timed out"];
     }];
 }
 
@@ -503,7 +482,7 @@ NSTimeInterval const kBackgroundFetchIntervalMinimum = 600;
         _timers.connect = nil;
     };
 
-    _timers.connect = [GCDTimer scheduledTimerWithTimeInterval:self.options.timeout repeats:NO block:^{
+    _timers.connect = [GCDTimer scheduledTimerWithTimeInterval:self.options.pingInterval repeats:NO block:^{
         stop();
 
         if (kPrimusReadyStateOpen == self.readyState || _attemptOptions) {
